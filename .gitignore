@@ -1,0 +1,35 @@
+*.zip
+*.png
+CLAUDE.md
+licencias
+
+# Fotos originales (con metadatos): nunca al repositorio
+originales/
+fotos-originales/
+*.heic
+*.HEIC
+*.raw
+*.RAW
+*.dng
+*.DNG
+*.cr2
+*.CR2
+*.nef
+*.NEF
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Cloudflare / Node
+.wrangler/
+node_modules/
+.env
+.dev.vars
+
+# Python
+.venv/
+__pycache__/

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es" data-estilo="sereno" data-tema="salvia" data-tipo="instrument">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta name="format-detection" content="telephone=no">
+  <title>Ane y Pablo</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/paletas.css">
+  <link rel="stylesheet" href="css/tipografias.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú" hidden>
+    <span class="menu-boton__linea"></span>
+    <span class="menu-boton__linea"></span>
+    <span class="menu-boton__linea"></span>
+  </button>
+
+  <nav class="menu" id="menu" aria-label="Menú" hidden>
+    <button class="menu__cerrar" id="menu-cerrar" type="button" aria-label="Cerrar menú">×</button>
+    <ul class="menu__lista">
+      <li><a class="menu__enlace" href="#dia"><span class="icono" data-icono="brindis" aria-hidden="true"></span>El día</a></li>
+      <li><a class="menu__enlace" href="#transporte"><span class="icono" data-icono="autobus" aria-hidden="true"></span>Transporte</a></li>
+      <li><a class="menu__enlace" href="#alojamiento"><span class="icono" data-icono="alojamiento" aria-hidden="true"></span>Alojamiento</a></li>
+      <li><a class="menu__enlace" href="#contactos"><span class="icono" data-icono="telefono" aria-hidden="true"></span>Contactos</a></li>
+      <li><a class="menu__enlace" href="#regalo"><span class="icono" data-icono="regalo" aria-hidden="true"></span>Regalo</a></li>
+    </ul>
+  </nav>
+
+  <header class="portada">
+    <p class="portada__lugar">Finca Machoenia, Urrugne</p>
+
+    <h1 class="portada__nombres">
+      <span class="portada__nombre">Ane</span>
+      <span class="portada__y">y</span>
+      <span class="portada__nombre">Pablo</span>
+    </h1>
+
+    <p class="portada__fecha">
+      <time datetime="2027-07-03T12:30">3 de julio de 2027</time>
+    </p>
+
+    <p class="portada__cuenta" id="cuenta-atras" data-fecha="2027-04-17T12:30:00" hidden></p>
+
+    <nav class="indice" aria-label="Secciones">
+      <a href="#dia">El día</a>
+      <a href="#transporte">Transporte</a>
+      <a href="#alojamiento">Alojamiento</a>
+      <a href="#contactos">Contactos</a>
+      <a href="#regalo">Regalo</a>
+    </nav>
+  </header>
+
+  <figure class="foto">
+    <img src="img/portada.jpg" alt="" width="1800" height="1000">
+  </figure>
+
+  <main>
+
+    <section class="seccion" id="dia" aria-labelledby="dia-titulo">
+      <span class="icono seccion__icono" data-icono="brindis" aria-hidden="true"></span>
+      <h2 class="seccion__titulo" id="dia-titulo">El día</h2>
+      <p class="seccion__intro">La ceremonia será a las 12:30 en la parroquia de San Ignacio. Después iremos todos juntos a la finca para comer y celebrarlo.</p>
+
+      <ol class="horario">
+        <li class="horario__item">
+          <span class="icono horario__icono" data-icono="iglesia" aria-hidden="true"></span>
+          <time class="horario__hora" datetime="12:30">12:30</time>
+          <div class="horario__detalle">
+            <h3>Ceremonia</h3>
+            <p>Parroquia de San Ignacio</p>
+            <p class="dato-secundario">Zabaleta Kalea, 18, 20002 Donostia / San Sebastián, Gipuzkoa</p>
+            <!-- <a class="enlace" href="https://www.openstreetmap.org/search?query=Plaza%20Mayor%201%20Villanueva" target="_blank" rel="noopener noreferrer">Ver en el mapa</a> -->
+          </div>
+        </li>
+        <li class="horario__item">
+          <span class="icono horario__icono" data-icono="celebracion" aria-hidden="true"></span>
+          <time class="horario__hora" datetime="14:00">14:00</time>
+          <div class="horario__detalle">
+            <h3>Celebración</h3>
+            <p>Finca Machoenia</p>
+            <p class="dato-secundario">Vieille Route d'Espagne, 64122 Urrugne, Francia</p>
+            <a class="enlace" href="https://www.openstreetmap.org/search?query=Camino%20de%20los%20Olmos%20Villanueva" target="_blank" rel="noopener noreferrer">Ver en el mapa</a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="seccion" id="transporte" aria-labelledby="transporte-titulo">
+      <span class="icono seccion__icono" data-icono="autobus" aria-hidden="true"></span>
+      <h2 class="seccion__titulo" id="transporte-titulo">Transporte</h2>
+      <p class="seccion__intro">Habrá autobuses de ida y vuelta desde la ciudad. Salen a las 13:45 desde la parroquia.</p>
+
+      <!-- <div class="paradas">
+        <article class="parada">
+          <h3>Parada Centro</h3>
+          <p>Frente a la estación de tren</p>
+          <p class="dato-secundario">Salida a las 11:00</p>
+          <a class="enlace" href="https://www.openstreetmap.org/search?query=estaci%C3%B3n%20de%20tren" target="_blank" rel="noopener noreferrer">Ver en el mapa</a>
+        </article>
+        <article class="parada">
+          <h3>Parada Playa</h3>
+          <p>Paseo Marítimo, junto al kiosco</p>
+          <p class="dato-secundario">Salida a las 11:00</p>
+          <a class="enlace" href="https://www.openstreetmap.org/search?query=paseo%20mar%C3%ADtimo" target="_blank" rel="noopener noreferrer">Ver en el mapa</a>
+        </article>
+      </div> -->
+
+      <h3 class="subtitulo">Ida</h3>
+      <dl class="vuelta">
+        <div class="vuelta__fila">
+          <dt>13:45</dt>
+        </div>
+
+      <h3 class="subtitulo">Vuelta</h3>
+      <dl class="vuelta">
+        <div class="vuelta__fila">
+          <dt>23:00</dt>
+          <dd>Para quien quiera retirarse pronto</dd>
+        </div>
+        <div class="vuelta__fila">
+          <dt>02:00</dt>
+          <dd>Para quien quiera cerrar la fiesta</dd>
+        </div>
+      </dl>
+      <p class="nota">Todos los autobuses de vuelta paran en las dos paradas.</p>
+    </section>
+
+    <section class="seccion" id="alojamiento" aria-labelledby="alojamiento-titulo">
+      <span class="icono seccion__icono" data-icono="alojamiento" aria-hidden="true"></span>
+      <h2 class="seccion__titulo" id="alojamiento-titulo">Alojamiento</h2>
+      <p class="seccion__intro">Estos hoteles están cerca de las paradas del autobús. Si pensáis quedaros a dormir, os recomendamos reservar pronto.</p>
+
+      <ul class="hoteles">
+        <li class="hotel">
+          <span class="hotel__nombre">Hotel Distrito Oeste</span>
+          <span class="hotel__estrellas" role="img" aria-label="3 estrellas">★★★</span>
+          <!-- <span class="hotel__detalle">Paseo Marítimo · a 2 min de la parada Playa</span> -->
+          <!-- <a class="enlace" href="https://www.openstreetmap.org/search?query=paseo%20mar%C3%ADtimo" target="_blank" rel="noopener noreferrer">Ver en el mapa</a> -->
+        </li>
+        <li class="hotel">
+          <span class="hotel__nombre">Hotel Barceló Costa Vasca</span>
+          <span class="hotel__estrellas" role="img" aria-label="4 estrellas">★★★★</span>
+          <!-- <span class="hotel__detalle">Centro · a 3 min de la parada Centro</span> -->
+          <!-- <a class="enlace" href="https://www.openstreetmap.org/search?query=estaci%C3%B3n%20de%20tren" target="_blank" rel="noopener noreferrer">Ver en el mapa</a> -->
+        </li>
+      </ul>
+    </section>
+
+    <section class="seccion" id="contactos" aria-labelledby="contactos-titulo">
+      <span class="icono seccion__icono" data-icono="telefono" aria-hidden="true"></span>
+      <h2 class="seccion__titulo" id="contactos-titulo">Contactos útiles</h2>
+      <p class="seccion__intro">Si preferís ir por vuestra cuenta, estos servicios conocen bien la zona.</p>
+
+      <ul class="contactos">
+        <li class="contacto">
+          <span class="contacto__nombre">Radio Taxi Villanueva</span>
+          <a class="contacto__dato" href="tel:+34900000000">900 000 000</a>
+        </li>
+        <li class="contacto">
+          <span class="contacto__nombre">Traslados del Norte</span>
+          <a class="contacto__dato" href="tel:+34600000000">600 000 000</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="seccion seccion--regalo" id="regalo" aria-labelledby="regalo-titulo">
+      <span class="icono seccion__icono" data-icono="regalo" aria-hidden="true"></span>
+      <h2 class="seccion__titulo" id="regalo-titulo">Regalo</h2>
+      <p class="seccion__intro">Lo más importante es que vengáis. Si aun así queréis tener un detalle con nosotros, podéis hacerlo aquí.</p>
+
+      <div class="cuenta">
+        <p class="cuenta__etiqueta" id="iban-etiqueta">Número de cuenta</p>
+        <p class="cuenta__numero" id="iban" aria-labelledby="iban-etiqueta">ES00 0000 0000 0000 0000 0000</p>
+        <button class="boton js-solo" type="button" data-copiar="iban" hidden>Copiar número</button>
+        <p class="cuenta__aviso" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="pie__nombres">Ane y Pablo</p>
+    <p class="pie__fecha">03.07.2027</p>
+  </footer>
+
+  <aside class="probador" id="probador" aria-label="Probar estilos" hidden>
+    <p class="probador__titulo">Probar estilos</p>
+
+    <label class="probador__campo">
+      <span>Estilo</span>
+      <select id="probador-estilo">
+        <optgroup label="Artesanales">
+          <option value="dibujado" data-tema="terracota" data-tipo="mano">Dibujado a mano</option>
+          <option value="postal" data-tema="arena" data-tipo="maquina">Postal</option>
+          <option value="botanico" data-tema="menta" data-tipo="caligrafia">Botánico</option>
+          <option value="acuarela" data-tema="cielo" data-tipo="pincel">Acuarela</option>
+          <option value="kraft" data-tema="kraft" data-tipo="rotulador">Kraft</option>
+          <option value="bordado" data-tema="lino" data-tipo="lapiz">Bordado</option>
+          <option value="cuaderno" data-tema="anil" data-tipo="cuaderno">Cuaderno</option>
+          <option value="serigrafia" data-tema="riso" data-tipo="grabado">Serigrafía (riso)</option>
+          <option value="puntilla" data-tema="rosa" data-tipo="pluma">Puntilla</option>
+        </optgroup>
+        <optgroup label="Otros">
+          <option value="sereno" data-tema="salvia" data-tipo="instrument">Sereno</option>
+          <option value="deco" data-tema="medianoche" data-tipo="deco">Art déco</option>
+          <option value="moderno" data-tema="rojizo" data-tipo="grotesca">Moderno</option>
+          <option value="verbena" data-tema="mandarina" data-tipo="redonda">Verbena</option>
+          <option value="azulejo" data-tema="cielo" data-tipo="suave">Azulejo</option>
+        </optgroup>
+      </select>
+    </label>
+
+    <label class="probador__check">
+      <input type="checkbox" id="probador-recomendado" checked>
+      <span>Al cambiar de estilo, usar su paleta y tipografía recomendadas</span>
+    </label>
+
+    <label class="probador__campo">
+      <span>Paleta</span>
+      <select id="probador-tema">
+        <optgroup label="Paletas">
+          <option value="salvia">Salvia y latón</option>
+          <option value="terracota">Terracota (amarronado)</option>
+          <option value="mostaza">Mostaza (amarillento)</option>
+          <option value="mandarina">Mandarina (anaranjado)</option>
+          <option value="rojizo">Rojizo</option>
+          <option value="burdeos">Burdeos</option>
+          <option value="rosa">Rosa empolvado</option>
+          <option value="lavanda">Lavanda</option>
+          <option value="cielo">Cielo (azulado)</option>
+          <option value="cantabrico">Cantábrico</option>
+          <option value="mediterraneo">Mediterráneo</option>
+          <option value="menta">Menta</option>
+          <option value="arena">Arena (sepia)</option>
+          <option value="editorial">Editorial (blanco y negro)</option>
+          <option value="noche">Noche (oscuro)</option>
+          <option value="medianoche">Medianoche (oscuro, oro)</option>
+        </optgroup>
+        <optgroup label="Artesanales">
+          <option value="kraft">Kraft (papel de estraza)</option>
+          <option value="lino">Lino (tela cruda)</option>
+          <option value="anil">Añil (tinta azul)</option>
+          <option value="riso">Riso (rosa flúor y azul)</option>
+        </optgroup>
+      </select>
+    </label>
+
+    <label class="probador__campo">
+      <span>Tipografía</span>
+      <select id="probador-tipo">
+        <optgroup label="Artesanales">
+          <option value="mano">A mano (rotulado)</option>
+          <option value="maquina">Máquina de escribir</option>
+          <option value="caligrafia">Caligrafía (nombres manuscritos)</option>
+          <option value="cuaderno">Cuaderno (Caveat + Kalam)</option>
+          <option value="rotulador">Rotulador (Permanent Marker)</option>
+          <option value="pincel">Pincel (Kaushan + Delius)</option>
+          <option value="lapiz">Lápiz (Reenie Beanie + Indie Flower)</option>
+          <option value="pluma">Pluma (Sacramento + Kalam)</option>
+          <option value="grabado">Grabado (Londrina + Mali)</option>
+        </optgroup>
+        <optgroup label="Otras">
+          <option value="instrument">Instrument (serif estrecha + sans)</option>
+          <option value="clasica">Clásica (Garamond)</option>
+          <option value="suave">Suave (Fraunces + Figtree)</option>
+          <option value="editorial">Editorial (Bodoni + Jost)</option>
+          <option value="deco">Déco (Poiret + Josefin)</option>
+          <option value="grotesca">Grotesca (Syne + Space Grotesk)</option>
+          <option value="redonda">Redonda (Fredoka + Nunito)</option>
+        </optgroup>
+      </select>
+    </label>
+
+    <div class="probador__botones">
+      <button class="probador__boton" type="button" id="probador-aleatorio">Al azar</button>
+      <button class="probador__boton" type="button" id="probador-copiar">Copiar etiqueta</button>
+      <button class="probador__boton" type="button" id="probador-plegar" aria-expanded="true">Ocultar</button>
+    </div>
+
+    <p class="probador__codigo" id="probador-codigo"></p>
+    <p class="probador__aviso" id="probador-aviso" role="status" aria-live="polite"></p>
+  </aside>
+
+</body>
+</html>

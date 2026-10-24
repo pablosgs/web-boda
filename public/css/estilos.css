@@ -1,0 +1,1462 @@
+/* =========================================================
+   ESTILOS DE DISEÑO
+   ---------------------------------------------------------
+   Cambian la composición y la decoración, no los colores ni
+   las fuentes (que siguen saliendo de paletas.css y tipografias.css).
+   Se eligen con data-estilo en la etiqueta <html>:
+
+     sereno    dos columnas, líneas finas (por defecto)
+     dibujado  invitación ilustrada a mano, cronología con iconos
+     postal    tarjetas postales, sellos y máquina de escribir
+     deco      marcos dobles, rombos y arcos años veinte
+     botanico  flores, ramas y formas ovaladas
+     moderno   tipografía enorme, alineado a la izquierda
+     verbena   banderines de fiesta y tarjetas redondeadas
+     azulejo   cenefas de azulejo mediterráneo
+
+   Artesanales:
+     acuarela   manchas de acuarela, bordes difuminados
+     kraft      papel de estraza, etiquetas, sellos y entradas
+     bordado    puntadas, punto de cruz y foto en bastidor
+     cuaderno   hoja de libreta, pósits y cinta adhesiva
+     serigrafia impresión riso: desajuste de tintas y tramas
+     puntilla   festones de encaje y blonda de papel
+
+   Cada estilo tiene una paleta y una tipografía recomendadas
+   (ver el probador con ?estilos), pero se pueden combinar libremente.
+   ========================================================= */
+
+
+/* =========================================================
+   Comunes a los estilos centrados
+   ========================================================= */
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  row-gap: 0;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > * {
+  grid-column: 1;
+  width: 100%;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > * + * {
+  margin-top: 1.25rem;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > .seccion__titulo {
+  grid-row: auto;
+  text-align: center;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"])
+  :is(.seccion__intro, .subtitulo, .nota) {
+  text-align: center;
+  margin-inline: auto;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
+    html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
+    html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > .seccion__intro {
+  margin-top: 0.75rem;
+}
+
+/* Cronología apilada y centrada */
+:is(html[data-estilo="deco"], html[data-estilo="botanico"], html[data-estilo="verbena"],
+    html[data-estilo="azulejo"], html[data-estilo="acuarela"], html[data-estilo="kraft"],
+    html[data-estilo="bordado"], html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .horario {
+  gap: 2.5rem;
+}
+
+:is(html[data-estilo="deco"], html[data-estilo="botanico"], html[data-estilo="verbena"],
+    html[data-estilo="azulejo"], html[data-estilo="acuarela"], html[data-estilo="kraft"],
+    html[data-estilo="bordado"], html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .horario__item {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+:is(html[data-estilo="deco"], html[data-estilo="botanico"], html[data-estilo="verbena"],
+    html[data-estilo="azulejo"], html[data-estilo="acuarela"], html[data-estilo="kraft"],
+    html[data-estilo="bordado"], html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) :is(.horario__detalle, .parada) {
+  justify-items: center;
+  text-align: center;
+}
+
+/* Menú desplegable en lugar del índice */
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="botanico"],
+    html[data-estilo="verbena"], html[data-estilo="acuarela"], html[data-estilo="kraft"],
+    html[data-estilo="bordado"], html[data-estilo="cuaderno"], html[data-estilo="puntilla"]) .menu-boton {
+  display: block;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="botanico"],
+    html[data-estilo="verbena"], html[data-estilo="acuarela"], html[data-estilo="kraft"],
+    html[data-estilo="bordado"], html[data-estilo="cuaderno"], html[data-estilo="puntilla"]).js .indice {
+  display: none;
+}
+
+/* Separador decorativo entre secciones */
+:is(html[data-estilo="dibujado"], html[data-estilo="deco"], html[data-estilo="botanico"],
+    html[data-estilo="acuarela"], html[data-estilo="bordado"], html[data-estilo="cuaderno"],
+    html[data-estilo="puntilla"]) .seccion {
+  border-bottom: 0;
+}
+
+:is(html[data-estilo="dibujado"], html[data-estilo="deco"], html[data-estilo="botanico"],
+    html[data-estilo="acuarela"], html[data-estilo="bordado"], html[data-estilo="cuaderno"],
+    html[data-estilo="puntilla"]) .seccion + .seccion::before {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 1.5rem;
+  margin-bottom: 3rem;
+  background: var(--separador-color, var(--linea));
+  -webkit-mask: var(--separador) center / contain no-repeat;
+  mask: var(--separador) center / contain no-repeat;
+}
+
+
+/* =========================================================
+   DIBUJADO
+   ========================================================= */
+html[data-estilo="dibujado"] {
+  --separador: url("../img/iconos/trazo.svg");
+  --separador-color: var(--tinta-suave);
+}
+
+html[data-estilo="dibujado"] .portada {
+  gap: 1.1rem;
+  min-height: auto;
+  padding-top: 6rem;
+  padding-bottom: 2.5rem;
+}
+
+html[data-estilo="dibujado"] .portada__nombres {
+  order: -2;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.3em;
+  font-size: clamp(3rem, 13vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+html[data-estilo="dibujado"] .portada__y {
+  font-size: 0;
+  line-height: 0;
+}
+
+html[data-estilo="dibujado"] .portada__y::before {
+  content: "+";
+  font-family: var(--fuente-nombres);
+  font-style: normal;
+  font-size: clamp(3rem, 13vw, 6.5rem);
+  line-height: 1.05;
+}
+
+html[data-estilo="dibujado"] .portada__fecha {
+  order: -1;
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.6rem * var(--escala-titulos));
+  letter-spacing: 0.25em;
+  color: var(--acento);
+}
+
+html[data-estilo="dibujado"] .portada__lugar {
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.4rem * var(--escala-titulos));
+  letter-spacing: 0.2em;
+  color: var(--acento);
+}
+
+html[data-estilo="dibujado"] .foto {
+  max-width: none;
+  padding: 0;
+}
+
+html[data-estilo="dibujado"] .foto img {
+  aspect-ratio: auto;
+  width: 100%;
+  max-height: 75vh;
+  object-fit: cover;
+  border-radius: 0;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+  mix-blend-mode: multiply;
+}
+
+html[data-estilo="dibujado"] .seccion {
+  padding: 3.5rem 0;
+}
+
+html[data-estilo="dibujado"] .seccion > .seccion__icono {
+  display: block;
+  width: 3.5rem;
+  color: var(--tinta);
+}
+
+html[data-estilo="dibujado"] .seccion__titulo {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Cronología con icono, punto y línea */
+html[data-estilo="dibujado"] .horario {
+  gap: 0;
+  margin-top: 2rem;
+}
+
+html[data-estilo="dibujado"] .horario__item {
+  position: relative;
+  grid-template-columns: 3.5rem 1.25rem minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  align-items: start;
+  padding-bottom: 2.75rem;
+}
+
+html[data-estilo="dibujado"] .horario__item::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: 0.75rem;
+  border-radius: 50%;
+  background: var(--acento);
+}
+
+html[data-estilo="dibujado"] .horario__item::after {
+  content: "";
+  position: absolute;
+  top: 1.8rem;
+  bottom: 0.5rem;
+  left: calc(3.5rem + 1rem + 0.625rem - 0.5px);
+  width: 1px;
+  background: var(--linea);
+}
+
+html[data-estilo="dibujado"] .horario__item:last-child::after {
+  display: none;
+}
+
+html[data-estilo="dibujado"] .horario__icono {
+  display: block;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 3.5rem;
+  color: var(--tinta);
+}
+
+html[data-estilo="dibujado"] .horario__hora {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--tinta);
+  font-size: calc(2rem * var(--escala-titulos));
+  letter-spacing: 0.05em;
+}
+
+html[data-estilo="dibujado"] .horario__detalle {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+html[data-estilo="dibujado"] .parada {
+  background: transparent;
+  border: 1.5px solid var(--linea);
+  border-radius: 16px 10px 18px 9px;
+}
+
+html[data-estilo="dibujado"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 18px 12px 20px 10px;
+}
+
+html[data-estilo="dibujado"] .boton {
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="dibujado"] .pie__nombres {
+  font-family: var(--fuente-nombres);
+  color: var(--acento);
+  text-transform: uppercase;
+}
+
+html[data-estilo="dibujado"]:is([data-tema="noche"], [data-tema="medianoche"]) .foto img {
+  mix-blend-mode: normal;
+}
+
+
+/* =========================================================
+   POSTAL
+   ========================================================= */
+html[data-estilo="postal"] .portada {
+  position: relative;
+}
+
+html[data-estilo="postal"] .portada::before {
+  content: "";
+  position: absolute;
+  top: 4.5rem;
+  right: max(1.25rem, calc(50% - 22rem));
+  width: 7.5rem;
+  height: 7.5rem;
+  background: var(--acento);
+  -webkit-mask: url("../img/iconos/sello.svg") center / contain no-repeat;
+  mask: url("../img/iconos/sello.svg") center / contain no-repeat;
+  opacity: 0.55;
+  transform: rotate(-14deg);
+}
+
+html[data-estilo="postal"] .portada__y {
+  font-family: var(--fuente-nombres);
+  font-style: normal;
+  font-size: 0.45em;
+}
+
+html[data-estilo="postal"] .portada__fecha {
+  letter-spacing: 0.08em;
+}
+
+html[data-estilo="postal"] .foto {
+  max-width: 40rem;
+}
+
+html[data-estilo="postal"] .foto img {
+  aspect-ratio: 4 / 3;
+  padding: 0.75rem 0.75rem 3.25rem;
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(40, 30, 20, 0.18);
+  transform: rotate(-1.5deg);
+}
+
+html[data-estilo="postal"] main {
+  max-width: calc(44rem + 2 * var(--margen));
+}
+
+html[data-estilo="postal"] .seccion {
+  margin: 2.5rem auto;
+  padding: 3rem clamp(1.25rem, 5vw, 3rem);
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  outline: 1px dashed var(--linea);
+  outline-offset: -0.75rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+html[data-estilo="postal"] .seccion:nth-child(odd) {
+  transform: rotate(-0.6deg);
+}
+
+html[data-estilo="postal"] .seccion:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+html[data-estilo="postal"] .seccion__titulo {
+  font-size: calc(1.9rem * var(--escala-titulos));
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: underline wavy var(--acento) 1.5px;
+  text-underline-offset: 0.4em;
+}
+
+html[data-estilo="postal"] .horario__item {
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: center;
+}
+
+html[data-estilo="postal"] .horario__hora {
+  display: grid;
+  place-items: center;
+  width: 5.25rem;
+  height: 5.25rem;
+  font-size: 1.35rem;
+  color: var(--acento);
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+  outline: 1px solid var(--acento);
+  outline-offset: 3px;
+  transform: rotate(-8deg);
+}
+
+html[data-estilo="postal"] .parada {
+  background: var(--papel);
+  border: 1px dashed var(--tinta-suave);
+  border-radius: 0;
+}
+
+html[data-estilo="postal"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  color: var(--tinta);
+  background: var(--papel);
+  border: 2px dashed var(--acento);
+  border-radius: 0;
+}
+
+html[data-estilo="postal"] .boton {
+  color: var(--papel);
+  background: var(--tinta);
+  border-radius: 2px;
+}
+
+html[data-estilo="postal"] .cuenta .boton:focus-visible {
+  outline-color: var(--acento);
+}
+
+
+/* =========================================================
+   DÉCO
+   ========================================================= */
+html[data-estilo="deco"] {
+  --separador: url("../img/iconos/rombo.svg");
+  --separador-color: var(--acento);
+}
+
+html[data-estilo="deco"] .portada {
+  position: relative;
+  min-height: calc(100svh - 2rem);
+  margin: 1rem;
+  padding-inline: 2.5rem;
+}
+
+html[data-estilo="deco"] .portada::before,
+html[data-estilo="deco"] .portada::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid var(--acento);
+}
+
+html[data-estilo="deco"] .portada::before {
+  inset: 0;
+}
+
+html[data-estilo="deco"] .portada::after {
+  inset: 0.6rem;
+  background:
+    linear-gradient(var(--acento), var(--acento)) top 0.5rem left 0.5rem / 0.6rem 0.6rem no-repeat,
+    linear-gradient(var(--acento), var(--acento)) top 0.5rem right 0.5rem / 0.6rem 0.6rem no-repeat,
+    linear-gradient(var(--acento), var(--acento)) bottom 0.5rem left 0.5rem / 0.6rem 0.6rem no-repeat,
+    linear-gradient(var(--acento), var(--acento)) bottom 0.5rem right 0.5rem / 0.6rem 0.6rem no-repeat;
+}
+
+html[data-estilo="deco"] .portada__nombres {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="deco"] .portada__y {
+  font-family: var(--fuente-nombres);
+  font-style: normal;
+  font-size: 0.35em;
+  letter-spacing: 0.3em;
+  line-height: 2;
+}
+
+html[data-estilo="deco"] .portada__fecha {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(0.85rem, 3.2vw, 1.1rem);
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+html[data-estilo="deco"] .portada__fecha::before,
+html[data-estilo="deco"] .portada__fecha::after {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: var(--acento);
+}
+
+html[data-estilo="deco"] :is(.portada__lugar, .indice a) {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="deco"] .indice a {
+  border-bottom: 0;
+}
+
+html[data-estilo="deco"] .foto {
+  max-width: 30rem;
+}
+
+html[data-estilo="deco"] .foto img {
+  aspect-ratio: 3 / 4;
+  padding: 0.5rem;
+  border: 1px solid var(--acento);
+  border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+}
+
+html[data-estilo="deco"] .seccion__titulo {
+  font-size: calc(1.9rem * var(--escala-titulos));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+html[data-estilo="deco"] .horario__hora {
+  font-size: 2.5rem;
+  letter-spacing: 0.08em;
+}
+
+html[data-estilo="deco"] .parada {
+  background: transparent;
+  border: 1px solid var(--acento);
+  border-radius: 0;
+  outline: 1px solid var(--acento);
+  outline-offset: 3px;
+}
+
+html[data-estilo="deco"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  color: var(--tinta);
+  background: transparent;
+  border: 1px solid var(--acento);
+  border-radius: 0;
+  outline: 1px solid var(--acento);
+  outline-offset: 4px;
+}
+
+html[data-estilo="deco"] .boton {
+  color: var(--papel);
+  background: var(--acento);
+  border-radius: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="deco"] .cuenta .boton:focus-visible {
+  outline-color: var(--acento);
+}
+
+html[data-estilo="deco"] .pie__nombres {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BOTÁNICO
+   ========================================================= */
+html[data-estilo="botanico"] {
+  --separador: url("../img/iconos/hoja.svg");
+  --separador-color: var(--acento);
+}
+
+html[data-estilo="botanico"] .portada::before {
+  content: "";
+  order: -1;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: var(--acento);
+  -webkit-mask: url("../img/iconos/flor.svg") center / contain no-repeat;
+  mask: url("../img/iconos/flor.svg") center / contain no-repeat;
+}
+
+html[data-estilo="botanico"] .foto {
+  max-width: 34rem;
+}
+
+html[data-estilo="botanico"] .foto img {
+  aspect-ratio: 4 / 5;
+  border-radius: 50%;
+}
+
+html[data-estilo="botanico"] .seccion__titulo {
+  font-style: italic;
+}
+
+html[data-estilo="botanico"] .horario__hora {
+  font-style: italic;
+}
+
+html[data-estilo="botanico"] .parada {
+  background: var(--superficie);
+  border: 0;
+  border-radius: 2rem;
+}
+
+html[data-estilo="botanico"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 2rem;
+}
+
+
+/* =========================================================
+   MODERNO
+   ========================================================= */
+html[data-estilo="moderno"] .portada {
+  align-items: flex-start;
+  justify-content: flex-end;
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  text-align: left;
+}
+
+html[data-estilo="moderno"] .portada__nombres {
+  align-items: flex-start;
+  font-size: clamp(3.5rem, 15vw, 11rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="moderno"] .portada__y {
+  font-family: var(--fuente-texto);
+  font-style: normal;
+  font-size: 0.22em;
+  line-height: 1.8;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[data-estilo="moderno"] .portada__fecha {
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-titulos);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+html[data-estilo="moderno"] .indice {
+  justify-content: flex-start;
+}
+
+html[data-estilo="moderno"] .indice a {
+  border-bottom: 2px solid var(--tinta);
+}
+
+html[data-estilo="moderno"] .foto {
+  max-width: none;
+  padding: 0;
+}
+
+html[data-estilo="moderno"] .foto img {
+  aspect-ratio: 16 / 7;
+  border-radius: 0;
+  filter: grayscale(1) contrast(1.05);
+}
+
+html[data-estilo="moderno"] .seccion {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+  padding-top: 1.5rem;
+  border-top: 3px solid var(--tinta);
+  border-bottom: 0;
+}
+
+html[data-estilo="moderno"] .seccion:first-child {
+  margin-top: 4rem;
+}
+
+html[data-estilo="moderno"] .seccion > * {
+  grid-column: 1;
+  max-width: 44rem;
+}
+
+html[data-estilo="moderno"] .seccion > * + * {
+  margin-top: 1.25rem;
+}
+
+html[data-estilo="moderno"] .seccion > .seccion__titulo {
+  grid-row: auto;
+  max-width: none;
+  margin-bottom: 1rem;
+  font-size: clamp(2.75rem, 9vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="moderno"] .horario__item {
+  grid-template-columns: 8rem minmax(0, 1fr);
+}
+
+html[data-estilo="moderno"] .horario__hora {
+  font-size: 2.75rem;
+}
+
+html[data-estilo="moderno"] .parada {
+  padding: 1rem 0 0;
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--tinta);
+  border-radius: 0;
+}
+
+html[data-estilo="moderno"] .cuenta,
+html[data-estilo="moderno"] .boton {
+  border-radius: 0;
+}
+
+html[data-estilo="moderno"] .boton {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html[data-estilo="moderno"] .pie {
+  justify-items: start;
+  max-width: calc(var(--ancho) + 2 * var(--margen));
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+/* =========================================================
+   VERBENA
+   ========================================================= */
+html[data-estilo="verbena"] .portada {
+  position: relative;
+  padding-top: 7rem;
+}
+
+/* Banderines */
+html[data-estilo="verbena"] .portada::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: repeating-linear-gradient(90deg,
+    var(--acento) 0 44px,
+    var(--bloque-fondo) 44px 88px,
+    var(--tinta-suave) 88px 132px,
+    var(--linea) 132px 176px);
+  -webkit-mask: conic-gradient(from -24.6deg at 50% 100%, #000 49.2deg, transparent 0) 0 0 / 44px 100% repeat-x;
+  mask: conic-gradient(from -24.6deg at 50% 100%, #000 49.2deg, transparent 0) 0 0 / 44px 100% repeat-x;
+}
+
+/* Cuerda */
+html[data-estilo="verbena"] .portada::after {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--tinta-suave);
+}
+
+html[data-estilo="verbena"] .portada__y {
+  font-style: normal;
+}
+
+html[data-estilo="verbena"] .foto img {
+  border-radius: 2rem;
+}
+
+html[data-estilo="verbena"] .seccion {
+  margin: 1.5rem auto;
+  padding: 3rem clamp(1.25rem, 5vw, 3rem);
+  background: var(--superficie);
+  border: 0;
+  border-radius: 2rem;
+}
+
+html[data-estilo="verbena"] .seccion > .seccion__icono {
+  display: block;
+  width: 3.5rem;
+  color: var(--acento);
+}
+
+html[data-estilo="verbena"] .horario__hora {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  font-size: 1.35rem;
+  color: var(--superficie);
+  background: var(--acento);
+  border-radius: 999px;
+}
+
+html[data-estilo="verbena"] .parada {
+  background: var(--papel);
+  border: 0;
+  border-radius: 1.25rem;
+}
+
+html[data-estilo="verbena"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 1.5rem;
+}
+
+
+/* =========================================================
+   AZULEJO
+   ========================================================= */
+html[data-estilo="azulejo"] {
+  --patron:
+    radial-gradient(circle, var(--acento) 0 17%, transparent 18%) 0 0 / 28px 28px,
+    conic-gradient(from 45deg, var(--bloque-fondo) 25%, var(--superficie) 0 50%, var(--bloque-fondo) 0 75%, var(--superficie) 0) 0 0 / 28px 28px;
+}
+
+html[data-estilo="azulejo"] .portada {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+html[data-estilo="azulejo"] .portada::after,
+html[data-estilo="azulejo"] .pie::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--patron);
+}
+
+html[data-estilo="azulejo"] .portada::after {
+  bottom: 0;
+}
+
+html[data-estilo="azulejo"] .pie {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 6rem;
+}
+
+html[data-estilo="azulejo"] .pie::before {
+  top: 0;
+}
+
+html[data-estilo="azulejo"] .foto {
+  max-width: 44rem;
+  margin-top: 3rem;
+}
+
+html[data-estilo="azulejo"] .foto img {
+  padding: 14px;
+  background: var(--patron);
+  border-radius: 0;
+}
+
+html[data-estilo="azulejo"] .seccion__titulo::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin: 1rem auto 0;
+  background: var(--acento);
+}
+
+html[data-estilo="azulejo"] .parada {
+  background: var(--superficie);
+  border: 0;
+  border-top: 6px solid var(--acento);
+  border-radius: 0 0 6px 6px;
+}
+
+html[data-estilo="azulejo"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 0;
+}
+
+
+/* =========================================================
+   ACUARELA
+   ========================================================= */
+html[data-estilo="acuarela"] {
+  --separador: url("../img/iconos/pincelada.svg");
+  --separador-color: color-mix(in srgb, var(--acento) 45%, transparent);
+}
+
+html[data-estilo="acuarela"] body {
+  background:
+    radial-gradient(38rem 26rem at 8% 2%, color-mix(in srgb, var(--acento) 16%, transparent), transparent 70%),
+    radial-gradient(30rem 24rem at 98% 16%, color-mix(in srgb, var(--bloque-fondo) 12%, transparent), transparent 70%),
+    radial-gradient(34rem 28rem at 0% 55%, color-mix(in srgb, var(--acento) 10%, transparent), transparent 70%),
+    radial-gradient(30rem 26rem at 100% 85%, color-mix(in srgb, var(--bloque-fondo) 10%, transparent), transparent 70%),
+    var(--papel);
+}
+
+html[data-estilo="acuarela"] .portada__nombres {
+  color: var(--acento);
+}
+
+html[data-estilo="acuarela"] .foto {
+  max-width: 46rem;
+}
+
+html[data-estilo="acuarela"] .foto img {
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  -webkit-mask: radial-gradient(ellipse 54% 56% at 50% 50%, #000 72%, transparent 100%);
+  mask: radial-gradient(ellipse 54% 56% at 50% 50%, #000 72%, transparent 100%);
+}
+
+html[data-estilo="acuarela"] .seccion > .seccion__icono {
+  display: block;
+  width: 3.25rem;
+  color: var(--acento);
+}
+
+html[data-estilo="acuarela"] .seccion > .seccion__titulo {
+  position: relative;
+  z-index: 0;
+  justify-self: center;
+  width: auto;
+  padding: 0.1em 0.6em;
+}
+
+html[data-estilo="acuarela"] .seccion__titulo::before {
+  content: "";
+  position: absolute;
+  inset: 12% -6% 0 -6%;
+  z-index: -1;
+  background: color-mix(in srgb, var(--acento) 22%, transparent);
+  border-radius: 48% 52% 45% 55% / 60% 50% 50% 40%;
+  filter: blur(5px);
+}
+
+html[data-estilo="acuarela"] .horario__hora {
+  color: var(--acento);
+}
+
+html[data-estilo="acuarela"] .parada {
+  background: color-mix(in srgb, var(--acento) 9%, var(--superficie));
+  border: 0;
+  border-radius: 2.2rem 3rem 2.6rem 3.4rem / 2.6rem 2.2rem 3rem 2.4rem;
+  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--acento) 12%, transparent);
+}
+
+html[data-estilo="acuarela"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  color: var(--tinta);
+  background: color-mix(in srgb, var(--acento) 15%, var(--superficie));
+  border-radius: 3rem 2.4rem 3.2rem 2.6rem / 2.4rem 3rem 2.6rem 3.2rem;
+}
+
+html[data-estilo="acuarela"] .boton {
+  color: var(--superficie);
+  background: var(--acento);
+}
+
+html[data-estilo="acuarela"] .cuenta .boton:focus-visible {
+  outline-color: var(--acento);
+}
+
+
+/* =========================================================
+   KRAFT
+   ========================================================= */
+html[data-estilo="kraft"] body {
+  background-color: var(--papel);
+  background-image:
+    radial-gradient(rgba(60, 40, 20, 0.14) 0.8px, transparent 1.2px),
+    radial-gradient(rgba(255, 255, 255, 0.2) 0.8px, transparent 1.2px);
+  background-size: 7px 7px, 11px 11px;
+  background-position: 0 0, 3px 5px;
+}
+
+html[data-estilo="kraft"] .foto {
+  position: relative;
+  max-width: 40rem;
+}
+
+html[data-estilo="kraft"] .foto img {
+  padding: 0.7rem;
+  background: var(--superficie);
+  border-radius: 0;
+  box-shadow: 0 8px 20px rgba(40, 25, 10, 0.22);
+  transform: rotate(1deg);
+}
+
+html[data-estilo="kraft"] .foto::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -0.7rem;
+  left: 50%;
+  width: 7rem;
+  height: 1.7rem;
+  background: color-mix(in srgb, var(--superficie) 70%, transparent);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+/* Cada sección es una etiqueta con ojal */
+html[data-estilo="kraft"] .seccion {
+  margin: 2.5rem auto;
+  padding: 4.5rem clamp(1.25rem, 5vw, 3rem) 3rem;
+  border: 0;
+  background: radial-gradient(circle at 50% 1.75rem, transparent 0.55rem, var(--linea) 0.58rem 0.8rem, var(--superficie) 0.83rem);
+  clip-path: polygon(2.5rem 0, calc(100% - 2.5rem) 0, 100% 2.5rem, 100% 100%, 0 100%, 0 2.5rem);
+}
+
+html[data-estilo="kraft"] .seccion > .seccion__icono {
+  display: block;
+  width: 3rem;
+  color: var(--tinta);
+}
+
+html[data-estilo="kraft"] .seccion > .seccion__titulo {
+  justify-self: center;
+  width: auto;
+  padding: 0.15em 0.6em;
+  font-size: calc(1.8rem * var(--escala-titulos));
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--acento);
+  border: 2.5px solid var(--acento);
+  border-radius: 4px;
+  transform: rotate(-2deg);
+}
+
+html[data-estilo="kraft"] .horario__hora {
+  color: var(--acento);
+}
+
+html[data-estilo="kraft"] .parada {
+  background: transparent;
+  border: 1.5px dashed var(--linea);
+  border-radius: 6px;
+}
+
+/* Bloque de regalo como entrada con muescas */
+html[data-estilo="kraft"] .cuenta {
+  justify-items: center;
+  padding-inline: 2.5rem;
+  text-align: center;
+  border-radius: 6px;
+  -webkit-mask:
+    radial-gradient(circle at 0 50%, transparent 0.9rem, #000 0.95rem) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent 0.9rem, #000 0.95rem) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle at 0 50%, transparent 0.9rem, #000 0.95rem) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent 0.9rem, #000 0.95rem) right / 51% 100% no-repeat;
+}
+
+
+/* =========================================================
+   BORDADO
+   ========================================================= */
+html[data-estilo="bordado"] {
+  --separador: url("../img/iconos/puntadas.svg");
+  --separador-color: var(--acento);
+  --punto-cruz:
+    linear-gradient(45deg, transparent 40%, var(--acento) 40% 60%, transparent 60%) 0 0 / 14px 14px,
+    linear-gradient(-45deg, transparent 40%, var(--acento) 40% 60%, transparent 60%) 0 0 / 14px 14px;
+}
+
+html[data-estilo="bordado"] body {
+  background-color: var(--papel);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.03) 0 1px, transparent 1px 4px);
+}
+
+html[data-estilo="bordado"] .portada::before,
+html[data-estilo="bordado"] .portada::after {
+  content: "";
+  width: min(14rem, 60%);
+  height: 14px;
+  background: var(--punto-cruz);
+}
+
+html[data-estilo="bordado"] .foto {
+  position: relative;
+  max-width: 26rem;
+}
+
+/* Foto en bastidor de bordar */
+html[data-estilo="bordado"] .foto img {
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  background: var(--superficie);
+  border: 0.8rem solid #c9a27a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #9c7651, inset 0 0 0 2px #9c7651, 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+html[data-estilo="bordado"] .foto::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -0.9rem;
+  left: 50%;
+  width: 2.4rem;
+  height: 1.6rem;
+  background: #b08a63;
+  border-radius: 0.3rem;
+  box-shadow: inset 0 0 0 2px #8a6744;
+  transform: translateX(-50%);
+}
+
+html[data-estilo="bordado"] .seccion > .seccion__icono {
+  display: block;
+  width: 3.25rem;
+  color: var(--acento);
+}
+
+html[data-estilo="bordado"] .seccion__titulo {
+  text-decoration: underline dashed var(--acento) 2px;
+  text-underline-offset: 0.3em;
+}
+
+html[data-estilo="bordado"] .horario__hora {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  font-size: 1.5rem;
+  background: var(--superficie);
+  border: 2px dashed var(--acento);
+  border-radius: 50%;
+  outline: 0.35rem solid var(--superficie);
+}
+
+html[data-estilo="bordado"] .parada {
+  background: var(--superficie);
+  border: 2px dashed var(--acento);
+  border-radius: 0.75rem;
+  outline: 0.4rem solid var(--superficie);
+}
+
+html[data-estilo="bordado"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 1rem;
+  outline: 2px dashed var(--bloque-texto);
+  outline-offset: -0.6rem;
+}
+
+
+/* =========================================================
+   CUADERNO
+   ========================================================= */
+html[data-estilo="cuaderno"] {
+  --separador: url("../img/iconos/trazo.svg");
+  --separador-color: var(--acento);
+  --renglon: 2rem;
+  --nota: color-mix(in srgb, var(--acento) 14%, var(--superficie));
+  --cinta: repeating-linear-gradient(45deg,
+    color-mix(in srgb, var(--acento) 50%, transparent) 0 6px,
+    color-mix(in srgb, var(--acento) 32%, transparent) 6px 12px);
+}
+
+html[data-estilo="cuaderno"] body {
+  background-color: var(--superficie);
+  background-image:
+    linear-gradient(90deg, transparent 0.9rem, rgba(208, 72, 62, 0.45) 0.9rem calc(0.9rem + 1.5px), transparent calc(0.9rem + 1.5px)),
+    linear-gradient(to bottom, transparent calc(var(--renglon) - 1px), color-mix(in srgb, var(--acento) 16%, transparent) calc(var(--renglon) - 1px));
+  background-size: 100% 100%, 100% var(--renglon);
+}
+
+html[data-estilo="cuaderno"] .portada__nombres::after {
+  content: "";
+  width: 70%;
+  height: 1.2rem;
+  margin-top: 0.5rem;
+  background: var(--acento);
+  -webkit-mask: url("../img/iconos/trazo.svg") center / 100% 100% no-repeat;
+  mask: url("../img/iconos/trazo.svg") center / 100% 100% no-repeat;
+}
+
+html[data-estilo="cuaderno"] .foto {
+  position: relative;
+  max-width: 38rem;
+  margin-top: 1rem;
+}
+
+html[data-estilo="cuaderno"] .foto img {
+  padding: 0.6rem 0.6rem 2.4rem;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: rotate(1.5deg);
+}
+
+html[data-estilo="cuaderno"] .foto::before,
+html[data-estilo="cuaderno"] .foto::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 6.5rem;
+  height: 1.6rem;
+  background: var(--cinta);
+}
+
+html[data-estilo="cuaderno"] .foto::before {
+  left: calc(var(--margen) - 1.75rem);
+  transform: rotate(-35deg);
+}
+
+html[data-estilo="cuaderno"] .foto::after {
+  right: calc(var(--margen) - 1.75rem);
+  transform: rotate(35deg);
+}
+
+html[data-estilo="cuaderno"] .seccion {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+html[data-estilo="cuaderno"] .seccion > * {
+  grid-column: 1;
+}
+
+html[data-estilo="cuaderno"] .seccion > * + * {
+  margin-top: 1.25rem;
+}
+
+html[data-estilo="cuaderno"] .seccion > .seccion__icono {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--tinta-suave);
+}
+
+html[data-estilo="cuaderno"] .seccion > .seccion__titulo {
+  grid-row: auto;
+  justify-self: start;
+  padding: 0 0.2em;
+  background: linear-gradient(transparent 58%, color-mix(in srgb, var(--acento) 30%, transparent) 58% 92%, transparent 92%);
+}
+
+html[data-estilo="cuaderno"] .seccion > .seccion__icono + .seccion__titulo {
+  margin-top: 0.5rem;
+}
+
+html[data-estilo="cuaderno"] .horario__item {
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: center;
+}
+
+html[data-estilo="cuaderno"] .horario__hora {
+  justify-self: start;
+  padding: 0.35rem 0.7rem;
+  color: var(--acento);
+  border: 2px solid var(--acento);
+  border-radius: 55% 45% 60% 40% / 50% 60% 40% 50%;
+  transform: rotate(-4deg);
+}
+
+/* Pósits */
+html[data-estilo="cuaderno"] .parada {
+  background: var(--nota);
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 10px 12px -8px rgba(0, 0, 0, 0.25);
+}
+
+html[data-estilo="cuaderno"] .parada:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+
+html[data-estilo="cuaderno"] .parada:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+html[data-estilo="cuaderno"] .cuenta {
+  color: var(--tinta);
+  background: var(--nota);
+  border-radius: 2px;
+  box-shadow: 0 10px 12px -8px rgba(0, 0, 0, 0.25);
+  transform: rotate(-0.8deg);
+}
+
+html[data-estilo="cuaderno"] .boton {
+  color: var(--superficie);
+  background: var(--tinta);
+  border-radius: 999px 940px 990px 960px;
+}
+
+html[data-estilo="cuaderno"] .cuenta .boton:focus-visible {
+  outline-color: var(--tinta);
+}
+
+
+/* =========================================================
+   SERIGRAFÍA (impresión riso)
+   ========================================================= */
+html[data-estilo="serigrafia"] :is(.portada__nombres, .seccion__titulo, .horario__hora, .pie__nombres) {
+  text-shadow: 0.06em 0.05em 0 color-mix(in srgb, var(--acento) 75%, transparent);
+}
+
+html[data-estilo="serigrafia"] :is(.portada__nombres, .seccion__titulo) {
+  text-transform: uppercase;
+}
+
+html[data-estilo="serigrafia"] .portada {
+  position: relative;
+  isolation: isolate;
+}
+
+html[data-estilo="serigrafia"] .portada::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--acento) 1.2px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.4;
+  -webkit-mask-image: radial-gradient(ellipse at 72% 28%, #000, transparent 62%);
+  mask-image: radial-gradient(ellipse at 72% 28%, #000, transparent 62%);
+}
+
+html[data-estilo="serigrafia"] .indice a {
+  border-bottom: 0;
+  background: linear-gradient(transparent 60%, color-mix(in srgb, var(--acento) 40%, transparent) 60%);
+}
+
+html[data-estilo="serigrafia"] .foto {
+  position: relative;
+  isolation: isolate;
+  max-width: 44rem;
+}
+
+html[data-estilo="serigrafia"] .foto img {
+  border-radius: 0;
+  filter: grayscale(1) contrast(1.15);
+  box-shadow: 0.6rem 0.6rem 0 var(--tinta);
+}
+
+html[data-estilo="serigrafia"] .foto::after {
+  content: "";
+  position: absolute;
+  inset: 0 var(--margen);
+  background: var(--acento);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+html[data-estilo="serigrafia"] .horario__hora {
+  font-size: 2.5rem;
+}
+
+html[data-estilo="serigrafia"] .parada {
+  background: var(--superficie);
+  border: 2px solid var(--tinta);
+  border-radius: 0;
+  box-shadow: 0.4rem 0.4rem 0 var(--acento);
+}
+
+html[data-estilo="serigrafia"] .cuenta {
+  justify-items: center;
+  text-align: center;
+  border-radius: 0;
+  box-shadow: 0.5rem 0.5rem 0 var(--acento);
+}
+
+html[data-estilo="serigrafia"] .boton {
+  border-radius: 0;
+  box-shadow: 0.2rem 0.2rem 0 var(--acento);
+}
+
+
+/* =========================================================
+   PUNTILLA (encaje y blonda de papel)
+   ========================================================= */
+html[data-estilo="puntilla"] {
+  --separador: url("../img/iconos/puntilla.svg");
+  --separador-color: var(--acento);
+  --feston: 9px;
+  --festones:
+    radial-gradient(var(--feston) at 50% var(--feston), #000 97%, transparent) 50% 0 / calc(2 * var(--feston)) calc(2 * var(--feston)) repeat-x,
+    radial-gradient(var(--feston) at 50% calc(100% - var(--feston)), #000 97%, transparent) 50% 100% / calc(2 * var(--feston)) calc(2 * var(--feston)) repeat-x,
+    linear-gradient(#000 0 0) 0 var(--feston) / 100% calc(100% - 2 * var(--feston)) no-repeat;
+}
+
+html[data-estilo="puntilla"] .portada::before {
+  content: "";
+  width: 10rem;
+  height: 1.5rem;
+  background: var(--acento);
+  -webkit-mask: url("../img/iconos/puntilla.svg") center / contain no-repeat;
+  mask: url("../img/iconos/puntilla.svg") center / contain no-repeat;
+}
+
+html[data-estilo="puntilla"] .portada__nombres {
+  color: var(--acento);
+}
+
+html[data-estilo="puntilla"] .foto {
+  max-width: 28rem;
+}
+
+html[data-estilo="puntilla"] .foto img {
+  aspect-ratio: 1;
+  padding: 0.6rem;
+  background: var(--superficie);
+  border: 0.35rem dotted var(--acento);
+  border-radius: 50%;
+  outline: 1px solid var(--acento);
+  outline-offset: 0.4rem;
+}
+
+html[data-estilo="puntilla"] .seccion > .seccion__icono {
+  display: block;
+  width: 3.25rem;
+  color: var(--acento);
+}
+
+html[data-estilo="puntilla"] .horario__hora {
+  color: var(--acento);
+}
+
+html[data-estilo="puntilla"] :is(.parada, .cuenta) {
+  border: 0;
+  border-radius: 0;
+  -webkit-mask: var(--festones);
+  mask: var(--festones);
+}
+
+html[data-estilo="puntilla"] .parada {
+  padding-block: 2rem;
+  background: var(--superficie);
+}
+
+html[data-estilo="puntilla"] .cuenta {
+  justify-items: center;
+  padding-block: 2.5rem;
+  text-align: center;
+}
+

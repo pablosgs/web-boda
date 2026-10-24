@@ -1,0 +1,275 @@
+/* =========================================================
+   PALETAS DE COLOR
+   ---------------------------------------------------------
+   Se eligen con data-tema en la etiqueta <html>.
+
+   --papel         fondo de la página
+   --superficie    fondo de tarjetas
+   --tinta         texto principal
+   --tinta-suave   texto secundario
+   --linea         bordes y separadores
+   --acento        horas, iconos, detalles
+   --bloque-fondo  fondo del bloque de regalo y botones destacados
+   --bloque-texto  texto sobre --bloque-fondo
+   ========================================================= */
+
+/* Salvia y latón (por defecto) */
+:root,
+html[data-tema="salvia"] {
+  color-scheme: light;
+  --papel: #eef0ea;
+  --superficie: #f7f8f4;
+  --tinta: #22302b;
+  --tinta-suave: #5a675f;
+  --linea: #c9cfc5;
+  --acento: #8a6a3b;
+  --bloque-fondo: #22302b;
+  --bloque-texto: #eef0ea;
+}
+
+/* Cantábrico: azul marino, piedra y arena */
+html[data-tema="cantabrico"] {
+  color-scheme: light;
+  --papel: #f3f5f6;
+  --superficie: #ffffff;
+  --tinta: #1c2b3a;
+  --tinta-suave: #5b6875;
+  --linea: #cfd6dc;
+  --acento: #8f7444;
+  --bloque-fondo: #1c2b3a;
+  --bloque-texto: #f3f5f6;
+}
+
+/* Burdeos: vino y rosa empolvado */
+html[data-tema="burdeos"] {
+  color-scheme: light;
+  --papel: #f5efec;
+  --superficie: #fbf8f6;
+  --tinta: #2e1d22;
+  --tinta-suave: #6e5a5f;
+  --linea: #e2d2ce;
+  --acento: #7b2d3d;
+  --bloque-fondo: #6b2737;
+  --bloque-texto: #f8eeec;
+}
+
+/* Editorial: blanco, negro y oliva */
+html[data-tema="editorial"] {
+  color-scheme: light;
+  --papel: #ffffff;
+  --superficie: #f5f5f2;
+  --tinta: #161616;
+  --tinta-suave: #5f5f5f;
+  --linea: #deded9;
+  --acento: #636a3f;
+  --bloque-fondo: #161616;
+  --bloque-texto: #ffffff;
+}
+
+/* Mediterráneo: blanco cal, cobalto y ocre */
+html[data-tema="mediterraneo"] {
+  color-scheme: light;
+  --papel: #fbfbf8;
+  --superficie: #ffffff;
+  --tinta: #172f66;
+  --tinta-suave: #4f5e80;
+  --linea: #d6dcea;
+  --acento: #a8770f;
+  --bloque-fondo: #1f48a3;
+  --bloque-texto: #fbfbf8;
+}
+
+/* Noche: versión oscura de salvia */
+html[data-tema="noche"] {
+  color-scheme: dark;
+  --papel: #1a2320;
+  --superficie: #222d29;
+  --tinta: #e8ebe5;
+  --tinta-suave: #a7b1aa;
+  --linea: #35433e;
+  --acento: #c9a96a;
+  --bloque-fondo: #e8ebe5;
+  --bloque-texto: #1a2320;
+}
+
+/* Terracota: crema y barro, cálido y amarronado */
+html[data-tema="terracota"] {
+  color-scheme: light;
+  --papel: #f4ede2;
+  --superficie: #faf6ef;
+  --tinta: #4a2e26;
+  --tinta-suave: #7a5e54;
+  --linea: #dccfc0;
+  --acento: #a4563b;
+  --bloque-fondo: #84462f;
+  --bloque-texto: #f8f1e7;
+}
+
+/* Mostaza: amarillento, luminoso */
+html[data-tema="mostaza"] {
+  color-scheme: light;
+  --papel: #fbf5e4;
+  --superficie: #fffbf0;
+  --tinta: #3a3120;
+  --tinta-suave: #6e6450;
+  --linea: #e8dcbc;
+  --acento: #9a7210;
+  --bloque-fondo: #d4a82a;
+  --bloque-texto: #2e2614;
+}
+
+/* Mandarina: anaranjado y alegre */
+html[data-tema="mandarina"] {
+  color-scheme: light;
+  --papel: #fdf1e7;
+  --superficie: #fff8f2;
+  --tinta: #3d2418;
+  --tinta-suave: #74584a;
+  --linea: #f0d9c6;
+  --acento: #bf5418;
+  --bloque-fondo: #c8581c;
+  --bloque-texto: #fff6ee;
+}
+
+/* Cielo: azulado y fresco */
+html[data-tema="cielo"] {
+  color-scheme: light;
+  --papel: #edf3f8;
+  --superficie: #f8fbfd;
+  --tinta: #1d3550;
+  --tinta-suave: #56708a;
+  --linea: #ccdae7;
+  --acento: #3a71a6;
+  --bloque-fondo: #2c5784;
+  --bloque-texto: #f2f7fb;
+}
+
+/* Rojizo: teja y granate */
+html[data-tema="rojizo"] {
+  color-scheme: light;
+  --papel: #f7ede9;
+  --superficie: #fcf6f3;
+  --tinta: #3e1a16;
+  --tinta-suave: #74524c;
+  --linea: #e8d3cc;
+  --acento: #ae382c;
+  --bloque-fondo: #9e2f25;
+  --bloque-texto: #fbf1ed;
+}
+
+/* Lavanda: violeta suave */
+html[data-tema="lavanda"] {
+  color-scheme: light;
+  --papel: #f1eff7;
+  --superficie: #f9f8fc;
+  --tinta: #2d2843;
+  --tinta-suave: #625c7c;
+  --linea: #dad5e8;
+  --acento: #6a58a3;
+  --bloque-fondo: #3e3566;
+  --bloque-texto: #f4f2fa;
+}
+
+/* Rosa: rosa empolvado */
+html[data-tema="rosa"] {
+  color-scheme: light;
+  --papel: #fbeff0;
+  --superficie: #fff8f8;
+  --tinta: #47262d;
+  --tinta-suave: #7e5c63;
+  --linea: #f0d6da;
+  --acento: #b14f64;
+  --bloque-fondo: #b9566b;
+  --bloque-texto: #fff5f6;
+}
+
+/* Menta: verde agua */
+html[data-tema="menta"] {
+  color-scheme: light;
+  --papel: #eaf4f0;
+  --superficie: #f6fbf9;
+  --tinta: #193a33;
+  --tinta-suave: #4f6e66;
+  --linea: #c8dfd7;
+  --acento: #2b826c;
+  --bloque-fondo: #1f5c4e;
+  --bloque-texto: #eef7f3;
+}
+
+/* Arena: papel envejecido con tinta de sello */
+html[data-tema="arena"] {
+  color-scheme: light;
+  --papel: #efe6d6;
+  --superficie: #f7f0e3;
+  --tinta: #3b3024;
+  --tinta-suave: #6e604e;
+  --linea: #d3c4aa;
+  --acento: #9c3d2e;
+  --bloque-fondo: #3b3024;
+  --bloque-texto: #efe6d6;
+}
+
+/* Medianoche: azul noche y oro */
+html[data-tema="medianoche"] {
+  color-scheme: dark;
+  --papel: #13203a;
+  --superficie: #1b2a47;
+  --tinta: #f1e7cf;
+  --tinta-suave: #b9b09a;
+  --linea: #34466a;
+  --acento: #d4af55;
+  --bloque-fondo: #d4af55;
+  --bloque-texto: #13203a;
+}
+
+/* Kraft: papel de estraza con etiquetas blancas y sello rojo */
+html[data-tema="kraft"] {
+  color-scheme: light;
+  --papel: #c8ad86;
+  --superficie: #f6efe2;
+  --tinta: #33251a;
+  --tinta-suave: #5e4a37;
+  --linea: #a98d68;
+  --acento: #9b2f22;
+  --bloque-fondo: #33251a;
+  --bloque-texto: #f6efe2;
+}
+
+/* Lino: tela cruda con hilo de óxido */
+html[data-tema="lino"] {
+  color-scheme: light;
+  --papel: #ede5d6;
+  --superficie: #f7f2e8;
+  --tinta: #39332c;
+  --tinta-suave: #6c6359;
+  --linea: #d6cbb7;
+  --acento: #a9502c;
+  --bloque-fondo: #5b6b4c;
+  --bloque-texto: #f7f2e8;
+}
+
+/* Añil: tinta de pluma azul sobre papel */
+html[data-tema="anil"] {
+  color-scheme: light;
+  --papel: #f4f2ec;
+  --superficie: #fffdf8;
+  --tinta: #1e2b4f;
+  --tinta-suave: #55607e;
+  --linea: #d4d6e0;
+  --acento: #3651a0;
+  --bloque-fondo: #1e2b4f;
+  --bloque-texto: #f4f2ec;
+}
+
+/* Riso: impresión en rosa flúor y azul */
+html[data-tema="riso"] {
+  color-scheme: light;
+  --papel: #f6f1e8;
+  --superficie: #fffaf2;
+  --tinta: #28306e;
+  --tinta-suave: #5a5f8c;
+  --linea: #ddd6ea;
+  --acento: #ee4f73;
+  --bloque-fondo: #28306e;
+  --bloque-texto: #fffaf2;
+}

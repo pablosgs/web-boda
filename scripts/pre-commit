@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Hook de git: impide hacer commit de imágenes con metadatos EXIF/GPS/XMP.
+# Instalar: cp scripts/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+set -euo pipefail
+
+command -v exiftool >/dev/null 2>&1 || { echo "pre-commit: instala exiftool" >&2; exit 1; }
+
+FALLO=0
+while IFS= read -r f; do
+  case "${f,,}" in
+    *.jpg|*.jpeg|*.png|*.webp|*.avif|*.tif|*.tiff|*.heic)
+      if [ -n "$(exiftool -q -q -gps:all -exif:all -xmp:all -iptc:all "$f")" ]; then
+        echo "✗ $f contiene metadatos. Ejecuta ./scripts/limpiar-imagenes.sh" >&2
+        FALLO=1
+      fi
+      ;;
+  esac
+done < <(git diff --cached --name-only --diff-filter=ACM)
+
+exit $FALLO
