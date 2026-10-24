@@ -1,0 +1,127 @@
+---
+// Probador de estilos: oculto salvo con ?estilos en la URL (lo activa script.js).
+---
+<aside class="probador" id="probador" aria-label="Probar estilos" hidden>
+  <p class="probador__titulo">Probar estilos</p>
+
+  <label class="probador__campo">
+    <span>Estilo</span>
+    <select id="probador-estilo">
+      <optgroup label="Invitación: separación entre secciones">
+        <option value="invitacion" data-tema="marfil" data-tipo="elegante">Ramita</option>
+        <option value="invitacion-rombo" data-tema="marfil" data-tipo="elegante">Filete con rombo</option>
+        <option value="invitacion-montanas" data-tema="marfil" data-tipo="elegante">Montañas</option>
+        <option value="invitacion-pinos" data-tema="marfil" data-tipo="elegante">Pinos</option>
+        <option value="invitacion-filete" data-tema="marfil" data-tipo="elegante">Línea fina</option>
+      </optgroup>
+      <optgroup label="Invitación con tarjetas: estilo del título">
+        <option value="invitacion-tarjetas" data-tema="marfil" data-tipo="elegante">Tarjetas · título centrado</option>
+        <option value="invitacion-tarjetas-linea" data-tema="marfil" data-tipo="elegante">Tarjetas · EL DÍA ———</option>
+        <option value="invitacion-tarjetas-centrado" data-tema="marfil" data-tipo="elegante">Tarjetas · ——— EL DÍA ———</option>
+        <option value="invitacion-tarjetas-subrayado" data-tema="marfil" data-tipo="elegante">Tarjetas · título subrayado</option>
+        <option value="invitacion-tarjetas-numerado" data-tema="marfil" data-tipo="elegante">Tarjetas · 01 EL DÍA ———</option>
+      </optgroup>
+      {/* Estilos anteriores, ocultos para elegir solo entre las variantes de Invitación.
+          Su CSS sigue en estilos.css: para recuperarlos, saca estas líneas del comentario.
+      <optgroup label="Artesanales">
+        <option value="dibujado" data-tema="terracota" data-tipo="mano">Dibujado a mano</option>
+        <option value="postal" data-tema="arena" data-tipo="maquina">Postal</option>
+        <option value="botanico" data-tema="menta" data-tipo="caligrafia">Botánico</option>
+        <option value="acuarela" data-tema="cielo" data-tipo="pincel">Acuarela</option>
+        <option value="kraft" data-tema="kraft" data-tipo="rotulador">Kraft</option>
+        <option value="bordado" data-tema="lino" data-tipo="lapiz">Bordado</option>
+        <option value="cuaderno" data-tema="anil" data-tipo="cuaderno">Cuaderno</option>
+        <option value="serigrafia" data-tema="riso" data-tipo="grabado">Serigrafía (riso)</option>
+        <option value="puntilla" data-tema="rosa" data-tipo="pluma">Puntilla</option>
+      </optgroup>
+      <optgroup label="Otros">
+        <option value="sereno" data-tema="salvia" data-tipo="instrument">Sereno</option>
+        <option value="deco" data-tema="medianoche" data-tipo="deco">Art déco</option>
+        <option value="moderno" data-tema="rojizo" data-tipo="grotesca">Moderno</option>
+        <option value="verbena" data-tema="mandarina" data-tipo="redonda">Verbena</option>
+        <option value="azulejo" data-tema="cielo" data-tipo="suave">Azulejo</option>
+      </optgroup>
+      */}
+    </select>
+  </label>
+
+  <label class="probador__check">
+    <input type="checkbox" id="probador-recomendado" checked>
+    <span>Al cambiar de estilo, usar su paleta y tipografía recomendadas</span>
+  </label>
+
+  <label class="probador__campo">
+    <span>Paleta</span>
+    <select id="probador-tema">
+      <optgroup label="Paletas">
+        <option value="salvia">Salvia y latón</option>
+        <option value="terracota">Terracota (amarronado)</option>
+        <option value="mostaza">Mostaza (amarillento)</option>
+        <option value="mandarina">Mandarina (anaranjado)</option>
+        <option value="rojizo">Rojizo</option>
+        <option value="burdeos">Burdeos</option>
+        <option value="rosa">Rosa empolvado</option>
+        <option value="lavanda">Lavanda</option>
+        <option value="cielo">Cielo (azulado)</option>
+        <option value="cantabrico">Cantábrico</option>
+        <option value="mediterraneo">Mediterráneo</option>
+        <option value="menta">Menta</option>
+        <option value="arena">Arena (sepia)</option>
+        <option value="campina1">Campiña 1 (crema y verde bosque)</option>
+        <option value="campina2">Campiña 2 (crema, barro y óxido)</option>
+        <option value="campina3">Campiña 3 (salvia y trigo)</option>
+        <option value="campina4">Campiña 4 (fondo casi blanco)</option>
+        <option value="prado1">Prado 1 (blanco roto y salvia)</option>
+        <option value="prado2">Prado 2 (lino y oliva)</option>
+        <option value="prado3">Prado 3 (beige y verde bosque)</option>
+        <option value="prado4">Prado 4 (blanco roto y eucalipto)</option>
+        <option value="marfil">Marfil (salvia y verde bosque)</option>
+        <option value="editorial">Editorial (blanco y negro)</option>
+        <option value="noche">Noche (oscuro)</option>
+        <option value="medianoche">Medianoche (oscuro, oro)</option>
+      </optgroup>
+      <optgroup label="Artesanales">
+        <option value="kraft">Kraft (papel de estraza)</option>
+        <option value="lino">Lino (tela cruda)</option>
+        <option value="anil">Añil (tinta azul)</option>
+        <option value="riso">Riso (rosa flúor y azul)</option>
+      </optgroup>
+    </select>
+  </label>
+
+  <label class="probador__campo">
+    <span>Tipografía</span>
+    <select id="probador-tipo">
+      <optgroup label="Artesanales">
+        <option value="mano">A mano (rotulado)</option>
+        <option value="maquina">Máquina de escribir</option>
+        <option value="caligrafia">Caligrafía (nombres manuscritos)</option>
+        <option value="cuaderno">Cuaderno (Caveat + Kalam)</option>
+        <option value="rotulador">Rotulador (Permanent Marker)</option>
+        <option value="pincel">Pincel (Kaushan + Delius)</option>
+        <option value="lapiz">Lápiz (Reenie Beanie + Indie Flower)</option>
+        <option value="pluma">Pluma (Sacramento + Kalam)</option>
+        <option value="grabado">Grabado (Londrina + Mali)</option>
+      </optgroup>
+      <optgroup label="Otras">
+        <option value="instrument">Instrument (serif estrecha + sans)</option>
+        <option value="clasica">Clásica (Garamond)</option>
+        <option value="elegante">Elegante (Cormorant Garamond + DM Sans)</option>
+        <option value="suave">Suave (Fraunces + Figtree)</option>
+        <option value="editorial">Editorial (Bodoni + Jost)</option>
+        <option value="deco">Déco (Poiret + Josefin)</option>
+        <option value="grotesca">Grotesca (Syne + Space Grotesk)</option>
+        <option value="redonda">Redonda (Fredoka + Nunito)</option>
+      </optgroup>
+    </select>
+  </label>
+
+  <div class="probador__botones">
+    <button class="probador__boton" type="button" id="probador-aleatorio">Al azar</button>
+    <button class="probador__boton" type="button" id="probador-copiar">Copiar configuración</button>
+    <button class="probador__boton" type="button" id="probador-plegar" aria-expanded="true">Ocultar</button>
+  </div>
+
+  <p class="probador__codigo" id="probador-codigo"></p>
+  <p class="probador__aviso" id="probador-aviso" role="status" aria-live="polite"></p>
+</aside>

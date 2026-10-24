@@ -1,0 +1,10 @@
+---
+// Evita que cualquier ruta devuelva la portada.
+import Base from "../layouts/Base.astro";
+---
+<Base titulo="Página no encontrada" sencilla>
+  <main class="error">
+    <h1>Esta página no existe</h1>
+    <p><a class="enlace" href="/">Volver al inicio</a></p>
+  </main>
+</Base>

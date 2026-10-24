@@ -1,0 +1,40 @@
+---
+// Plantilla común: <head>, apariencia, menú y probador.
+// Solo HTML: el CSS está en public/css y el JS en public/js/script.js.
+import { apariencia, boda } from "../config.js";
+import Menu from "../components/Menu.astro";
+import Probador from "../components/Probador.astro";
+
+const { titulo, sencilla = false } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es" data-estilo={apariencia.estilo} data-tema={apariencia.tema} data-tipo={apariencia.tipo}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta name="format-detection" content="telephone=no">
+  <title>{titulo}</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/paletas.css">
+  <link rel="stylesheet" href="/css/tipografias.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/estilos.css">
+  {!sencilla && <script is:inline src="/js/script.js" defer></script>}
+</head>
+<body>
+  {!sencilla && <Menu />}
+
+  <slot />
+
+  {!sencilla && (
+    <footer class="pie">
+      <p class="pie__nombres">{boda.nombres.join(" y ")}</p>
+      <p class="pie__fecha">{boda.fechaCorta}</p>
+    </footer>
+  )}
+
+  {!sencilla && <Probador />}
+</body>
+</html>

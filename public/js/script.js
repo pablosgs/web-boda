@@ -3,11 +3,14 @@
  * - Muestra la cuenta atrás hasta la boda.
  * - Permite copiar el número de cuenta.
  * - Menú desplegable (solo visible en los estilos que lo usan).
+ * - Formulario de confirmación: oculta las preguntas de "Si vienes" cuando
+ *   se marca que no.
  * - Probador de estilos: solo se activa abriendo la web con ?estilos
  *   (por ejemplo https://tudominio.com/?estilos). Permite cambiar estilo,
- *   paleta y tipografía al vuelo y genera la etiqueta <html> para pegar en
- *   index.html. También acepta ?estilos&estilo=postal&tema=arena&tipo=maquina
- *   para compartir una combinación concreta.
+ *   paleta y tipografía al vuelo y genera el bloque para pegar en
+ *   src/config.js. También acepta ?estilos&estilo=postal&tema=arena&tipo=maquina
+ *   para compartir una combinación concreta, y la mantiene al navegar
+ *   entre páginas.
  * No hace peticiones de red, no usa cookies ni almacenamiento.
  */
 (function () {
@@ -147,6 +150,28 @@
     });
   }
 
+  function iniciarFormulario() {
+    var grupo = document.getElementById("si-asiste");
+    var opciones = document.querySelectorAll("[data-asistencia]");
+    if (!grupo || !opciones.length) return;
+
+    function actualizar() {
+      var noViene = false;
+      Array.prototype.forEach.call(opciones, function (opcion) {
+        if (opcion.checked && opcion.value === "No") noViene = true;
+      });
+      // disabled evita que se envíen los campos ocultos.
+      grupo.hidden = noViene;
+      grupo.disabled = noViene;
+    }
+
+    Array.prototype.forEach.call(opciones, function (opcion) {
+      opcion.addEventListener("change", actualizar);
+    });
+
+    actualizar();
+  }
+
   function iniciarProbador() {
     var parametros = new URLSearchParams(window.location.search);
     if (!parametros.has("estilos")) return;
@@ -175,10 +200,24 @@
       });
     }
 
-    function etiqueta() {
-      return '<html lang="es" data-estilo="' + raiz.getAttribute("data-estilo") +
-        '" data-tema="' + raiz.getAttribute("data-tema") +
-        '" data-tipo="' + raiz.getAttribute("data-tipo") + '">';
+    function configuracion() {
+      return 'export const apariencia = { estilo: "' + raiz.getAttribute("data-estilo") +
+        '", tema: "' + raiz.getAttribute("data-tema") +
+        '", tipo: "' + raiz.getAttribute("data-tipo") + '" };';
+    }
+
+    // Añade la combinación a los enlaces internos para no perderla al navegar.
+    function actualizarEnlaces(busqueda) {
+      Array.prototype.forEach.call(document.querySelectorAll('a[href^="/"]'), function (enlace) {
+        if (!enlace.hasAttribute("data-href-original")) {
+          enlace.setAttribute("data-href-original", enlace.getAttribute("href"));
+        }
+        var original = enlace.getAttribute("data-href-original");
+        var almohadilla = original.indexOf("#");
+        var ruta = almohadilla === -1 ? original : original.slice(0, almohadilla);
+        var fragmento = almohadilla === -1 ? "" : original.slice(almohadilla);
+        enlace.setAttribute("href", ruta + busqueda + fragmento);
+      });
     }
 
     function aplicar(seleccion) {
@@ -193,9 +232,10 @@
         url.searchParams.set(eje, raiz.getAttribute("data-" + eje));
       });
 
-      codigo.textContent = etiqueta();
+      codigo.textContent = configuracion();
       if (aviso) aviso.textContent = "";
       window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+      actualizarEnlaces(url.search);
     }
 
     function actual() {
@@ -246,9 +286,9 @@
 
     if (botonCopiar) {
       botonCopiar.addEventListener("click", function () {
-        copiarTexto(etiqueta()).then(
+        copiarTexto(configuracion()).then(
           function () {
-            if (aviso) aviso.textContent = "Copiada. Sustituye con ella la etiqueta <html> de index.html y 404.html.";
+            if (aviso) aviso.textContent = "Copiada. Sustituye con ella el bloque apariencia de src/config.js.";
           },
           function () {
             if (aviso) aviso.textContent = "No se ha podido copiar. Copia el texto de arriba a mano.";
@@ -274,6 +314,7 @@
     iniciarMenu();
     iniciarCuentaAtras();
     iniciarBotonesCopiar();
+    iniciarFormulario();
     iniciarProbador();
   });
 })();

@@ -1,0 +1,21 @@
+---
+// Botón y menú desplegable. Solo se ven en los estilos que lo usan.
+import { navegacion } from "../config.js";
+import { enlace } from "../enlaces.js";
+
+const ruta = Astro.url.pathname;
+---
+<button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú" hidden>
+  <span class="menu-boton__linea"></span>
+  <span class="menu-boton__linea"></span>
+  <span class="menu-boton__linea"></span>
+</button>
+
+<nav class="menu" id="menu" aria-label="Menú" hidden>
+  <button class="menu__cerrar" id="menu-cerrar" type="button" aria-label="Cerrar menú">×</button>
+  <ul class="menu__lista">
+    {navegacion.map((item) => (
+      <li><a class="menu__enlace" href={enlace(item, ruta)}><span class="icono" data-icono={item.icono} aria-hidden="true"></span>{item.texto}</a></li>
+    ))}
+  </ul>
+</nav>

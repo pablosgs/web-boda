@@ -87,6 +87,7 @@ a {
 .icono[data-icono="telefono"] { --icono: url("../img/iconos/telefono.svg"); }
 .icono[data-icono="regalo"] { --icono: url("../img/iconos/regalo.svg"); }
 .icono[data-icono="flor"] { --icono: url("../img/iconos/flor.svg"); }
+.icono[data-icono="sobre"] { --icono: url("../img/iconos/sobre.svg"); }
 
 .fuera-de-pantalla {
   position: fixed;
@@ -165,6 +166,18 @@ a {
   border-bottom-color: var(--tinta);
 }
 
+/* Cabecera reducida de las páginas interiores (ajustes finales en estilos.css). */
+.portada__inicio {
+  display: flex;
+  flex-direction: inherit;
+  flex-wrap: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  gap: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 /* =========================================================
    Foto
    ========================================================= */
@@ -211,6 +224,13 @@ main {
 .seccion__intro {
   max-width: 34rem;
   color: var(--tinta-suave);
+}
+
+/* Información concreta de cada sección (algunos estilos la meten en una tarjeta) */
+.seccion__contenido {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
 }
 
 .seccion h3 {
@@ -386,6 +406,20 @@ main {
   outline-color: var(--bloque-texto);
 }
 
+/* Botón fuera del bloque de regalo: colores del bloque, sobre el papel. */
+.portada__rsvp .boton {
+  display: inline-block;
+  color: var(--bloque-texto);
+  background: var(--bloque-fondo);
+  text-decoration: none;
+}
+
+.boton--enviar {
+  padding: 0.75rem 1.6rem;
+  color: var(--bloque-texto);
+  background: var(--bloque-fondo);
+}
+
 /* Hoteles */
 .hoteles {
   display: grid;
@@ -424,6 +458,106 @@ main {
   grid-column: 1 / -1;
   justify-self: start;
   margin-top: 0.25rem;
+}
+
+/* =========================================================
+   Formulario de confirmación
+   ========================================================= */
+.formulario {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 34rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.formulario__grupo {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 1.5rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--linea);
+}
+
+.formulario__grupo-titulo {
+  padding: 0 0.75rem 0 0;
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-titulos);
+  font-size: calc(1.5rem * var(--escala-titulos));
+}
+
+.campo {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.campo__etiqueta {
+  padding: 0;
+  font-weight: var(--peso-negrita);
+}
+
+.campo__ayuda {
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}
+
+.campo__control {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+}
+
+.campo__control:focus-visible {
+  border-color: var(--acento);
+}
+
+.campo__control--corto {
+  width: 6rem;
+}
+
+textarea.campo__control {
+  resize: vertical;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.opcion input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--acento);
+}
+
+.formulario__privacidad {
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}
+
+.formulario .boton {
+  justify-self: start;
+}
+
+/* Campo trampa para robots (honeypot): fuera de la vista, pero en el HTML. */
+.campo-trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* =========================================================

@@ -1,0 +1,85 @@
+---
+// Formulario de confirmación. Lo recoge Netlify Forms: Netlify lo detecta en el
+// HTML al desplegar (data-netlify) y guarda los envíos en su panel, desde donde
+// se descargan en CSV. Los "name" de los campos son las columnas del CSV.
+import Base from "../layouts/Base.astro";
+import Cabecera from "../components/Cabecera.astro";
+import { boda } from "../config.js";
+---
+<Base titulo="Confirmar asistencia">
+
+  <Cabecera />
+
+  <main>
+    <section class="seccion" id="confirmar" aria-labelledby="confirmar-titulo">
+      <span class="icono seccion__icono" data-icono="sobre" aria-hidden="true"></span>
+      <h1 class="seccion__titulo" id="confirmar-titulo">Confirmar asistencia</h1>
+      <p class="seccion__intro">Nos ayudaría mucho que nos contestaras antes del {boda.confirmarAntesDe}. Si venís varios, basta con que lo rellene una persona.</p>
+
+      <div class="seccion__contenido">
+
+        <form class="formulario" name="confirmacion" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="sitio-web">
+          <input type="hidden" name="form-name" value="confirmacion">
+
+          <p class="campo-trampa" aria-hidden="true">
+            <label>No rellenes este campo <input name="sitio-web" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="campo">
+            <label class="campo__etiqueta" for="nombre">Nombre y apellidos</label>
+            <input class="campo__control" id="nombre" name="nombre" type="text" required maxlength="100" autocomplete="name">
+          </div>
+
+          <fieldset class="campo">
+            <legend class="campo__etiqueta">¿Vendrás?</legend>
+            <label class="opcion"><input type="radio" name="asistencia" value="Sí" required data-asistencia> Sí, allí estaré</label>
+            <label class="opcion"><input type="radio" name="asistencia" value="No" data-asistencia> No podré ir</label>
+          </fieldset>
+
+          <fieldset class="formulario__grupo" id="si-asiste">
+            <legend class="formulario__grupo-titulo">Si vienes</legend>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="acompanantes">¿Cuántas personas venís contigo? (sin contarte a ti)</label>
+              <input class="campo__control campo__control--corto" id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0" inputmode="numeric">
+            </div>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="nombres-acompanantes">Nombres de tus acompañantes</label>
+              <textarea class="campo__control" id="nombres-acompanantes" name="nombres_acompanantes" rows="2" maxlength="500"></textarea>
+            </div>
+
+            <fieldset class="campo">
+              <legend class="campo__etiqueta">Autobús de ida (13:45 desde la parroquia)</legend>
+              <label class="opcion"><input type="radio" name="autobus_ida" value="Sí"> Sí</label>
+              <label class="opcion"><input type="radio" name="autobus_ida" value="No"> No, iremos por nuestra cuenta</label>
+            </fieldset>
+
+            <fieldset class="campo">
+              <legend class="campo__etiqueta">Autobús de vuelta</legend>
+              <label class="opcion"><input type="radio" name="autobus_vuelta" value="23:00"> El de las 23:00</label>
+              <label class="opcion"><input type="radio" name="autobus_vuelta" value="02:00"> El de las 02:00</label>
+              <label class="opcion"><input type="radio" name="autobus_vuelta" value="No"> No lo usaremos</label>
+            </fieldset>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="alimentacion">¿Alguna restricción en la comida?</label>
+              <p class="campo__ayuda" id="alimentacion-ayuda">Opcional. Por ejemplo: vegetariano, sin gluten, sin marisco. Si es de un acompañante, indica de quién.</p>
+              <textarea class="campo__control" id="alimentacion" name="alimentacion" rows="2" maxlength="500" aria-describedby="alimentacion-ayuda"></textarea>
+            </div>
+          </fieldset>
+
+          <div class="campo">
+            <label class="campo__etiqueta" for="mensaje">¿Quieres decirnos algo?</label>
+            <textarea class="campo__control" id="mensaje" name="mensaje" rows="3" maxlength="1000"></textarea>
+          </div>
+
+          <p class="formulario__privacidad">Solo usaremos estos datos para organizar la boda y los borraremos después.</p>
+
+          <button class="boton boton--enviar" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+</Base>

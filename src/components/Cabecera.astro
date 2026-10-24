@@ -1,0 +1,19 @@
+---
+// Cabecera reducida para las páginas que no son la portada.
+import { boda } from "../config.js";
+
+const [nombre1, nombre2] = boda.nombres;
+---
+<header class="portada portada--breve">
+  <p class="portada__nombres">
+    <a class="portada__inicio" href="/">
+      <span class="portada__nombre">{nombre1}</span>
+      <span class="portada__y">y</span>
+      <span class="portada__nombre">{nombre2}</span>
+    </a>
+  </p>
+
+  <p class="portada__fecha">
+    <time datetime={boda.fecha.slice(0, 16)}>{boda.fechaTexto}</time>
+  </p>
+</header>

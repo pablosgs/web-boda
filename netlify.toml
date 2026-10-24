@@ -1,0 +1,10 @@
+# Configuración de Netlify. Las cabeceras de seguridad están en public/_headers
+# (Netlify y Cloudflare Pages leen el mismo formato).
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+  # Astro envía estadísticas de uso anónimas por defecto; las desactivamos.
+  ASTRO_TELEMETRY_DISABLED = "1"

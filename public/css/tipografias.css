@@ -2,7 +2,7 @@
    TIPOGRAFÍAS
    ---------------------------------------------------------
    Se eligen con data-tipo en la etiqueta <html>:
-     instrument · clasica · suave · editorial · caligrafia
+     instrument · clasica · elegante · suave · editorial · caligrafia
      mano · maquina · deco · grotesca · redonda
    Artesanales:
      cuaderno · rotulador · pincel · lapiz · pluma · grabado
@@ -22,6 +22,9 @@
 
 @font-face { font-family: "Cormorant Garamond"; src: url("../fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "Cormorant Garamond"; src: url("../fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("../fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "EB Garamond"; src: url("../fonts/eb-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "EB Garamond"; src: url("../fonts/eb-garamond-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "EB Garamond"; src: url("../fonts/eb-garamond-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
@@ -119,6 +122,21 @@ html[data-tipo="clasica"] {
   --tamano-nombres: clamp(4.25rem, 16vw, 10rem);
   --interlineado-nombres: 0.9;
   --tamano-texto: 1.15rem;
+  --interlineado-texto: 1.65;
+}
+
+/* Elegante: Cormorant Garamond (nombres y títulos) + DM Sans (texto) */
+html[data-tipo="elegante"] {
+  --fuente-nombres: "Cormorant Garamond", Garamond, Georgia, serif;
+  --fuente-titulos: "Cormorant Garamond", Garamond, Georgia, serif;
+  --fuente-texto: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --peso-nombres: 600;
+  --peso-titulos: 500;
+  --peso-negrita: 500;
+  --escala-titulos: 1;
+  --tamano-nombres: clamp(3.5rem, 13vw, 8rem);
+  --interlineado-nombres: 0.95;
+  --tamano-texto: 1rem;
   --interlineado-texto: 1.65;
 }
 

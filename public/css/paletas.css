@@ -273,3 +273,127 @@ html[data-tema="riso"] {
   --bloque-fondo: #28306e;
   --bloque-texto: #fffaf2;
 }
+
+/* Campiña: óxido, barro, trigo, salvia y verde bosque.
+   Tres repartos de los mismos cinco colores (#a0520e, #c97c5d,
+   #ead2ac, #c0caad, #3e5641); el resto son matices derivados. */
+
+/* Campiña 1: crema y verde bosque, detalles en óxido */
+html[data-tema="campina1"] {
+  color-scheme: light;
+  --papel: #ead2ac;
+  --superficie: #f5e9d3;
+  --tinta: #3e5641;
+  --tinta-suave: #525f4e;
+  --linea: #c0caad;
+  --acento: #a0520e;
+  --bloque-fondo: #3e5641;
+  --bloque-texto: #ead2ac;
+}
+
+/* Campiña 2: más cálida, líneas de barro y bloque en óxido */
+html[data-tema="campina2"] {
+  color-scheme: light;
+  --papel: #ead2ac;
+  --superficie: #f5e9d3;
+  --tinta: #3e5641;
+  --tinta-suave: #525f4e;
+  --linea: #c97c5d;
+  --acento: #a0520e;
+  --bloque-fondo: #a0520e;
+  --bloque-texto: #f5e9d3;
+}
+
+/* Campiña 3: fondo salvia y tarjetas de trigo */
+html[data-tema="campina3"] {
+  color-scheme: light;
+  --papel: #c0caad;
+  --superficie: #ead2ac;
+  --tinta: #2a3b2d;
+  --tinta-suave: #3e5641;
+  --linea: #a5b092;
+  --acento: #a0520e;
+  --bloque-fondo: #3e5641;
+  --bloque-texto: #ead2ac;
+}
+
+/* Campiña 4: fondo casi blanco (trigo aclarado) y tarjetas de trigo */
+html[data-tema="campina4"] {
+  color-scheme: light;
+  --papel: #f5e9d3;
+  --superficie: #ead2ac;
+  --tinta: #3e5641;
+  --tinta-suave: #525f4e;
+  --linea: #c0caad;
+  --acento: #a0520e;
+  --bloque-fondo: #3e5641;
+  --bloque-texto: #f5e9d3;
+}
+
+/* Prado: fondos claros (blanco roto, lino, beige) con detalles en verde.
+   Texto casi negro con un punto verde para que todo vaya a juego. */
+
+/* Prado 1: blanco roto y salvia */
+html[data-tema="prado1"] {
+  color-scheme: light;
+  --papel: #f7f4ee;
+  --superficie: #fcfaf6;
+  --tinta: #2f3a33;
+  --tinta-suave: #5e6a62;
+  --linea: #dcdfd3;
+  --acento: #6b8068;
+  --bloque-fondo: #4f6450;
+  --bloque-texto: #f7f4ee;
+}
+
+/* Prado 2: lino y oliva */
+html[data-tema="prado2"] {
+  color-scheme: light;
+  --papel: #f1ebe0;
+  --superficie: #f8f4ec;
+  --tinta: #33352a;
+  --tinta-suave: #63655a;
+  --linea: #ddd6c8;
+  --acento: #6b7342;
+  --bloque-fondo: #565c33;
+  --bloque-texto: #f8f4ec;
+}
+
+/* Prado 3: beige y verde bosque */
+html[data-tema="prado3"] {
+  color-scheme: light;
+  --papel: #ece3d3;
+  --superficie: #f6f0e5;
+  --tinta: #26332a;
+  --tinta-suave: #56625a;
+  --linea: #d6cbb6;
+  --acento: #2f5a3e;
+  --bloque-fondo: #2f4a37;
+  --bloque-texto: #f6f0e5;
+}
+
+/* Prado 4: blanco roto y eucalipto (verde azulado) */
+html[data-tema="prado4"] {
+  color-scheme: light;
+  --papel: #f5f3ee;
+  --superficie: #fbfaf7;
+  --tinta: #27332f;
+  --tinta-suave: #58635f;
+  --linea: #d7ddd8;
+  --acento: #4d7a6c;
+  --bloque-fondo: #33564b;
+  --bloque-texto: #f5f3ee;
+}
+
+/* Marfil: papelería de invitación en marfil, salvia y verde bosque */
+html[data-tema="marfil"] {
+  color-scheme: light;
+  --papel: #f6f3ea;
+  --superficie: #fbf9f4;
+  --tinta: #4e5f3f;
+  --tinta-suave: #5f6b57;
+  --linea: #d3d9cc;
+  --acento: #8f9f88;
+  --bloque-fondo: #4e5f3f;
+  --bloque-texto: #f6f3ea;
+}

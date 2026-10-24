@@ -1,0 +1,22 @@
+---
+// Página a la que Netlify redirige tras enviar el formulario (action="/gracias/").
+import Base from "../layouts/Base.astro";
+import Cabecera from "../components/Cabecera.astro";
+---
+<Base titulo="¡Gracias!">
+
+  <Cabecera />
+
+  <main>
+    <section class="seccion" id="gracias" aria-labelledby="gracias-titulo">
+      <span class="icono seccion__icono" data-icono="sobre" aria-hidden="true"></span>
+      <h1 class="seccion__titulo" id="gracias-titulo">¡Gracias!</h1>
+      <p class="seccion__intro">Hemos recibido tu respuesta. Si necesitas cambiar algo, vuelve a rellenar el formulario y nos quedaremos con la última.</p>
+
+      <div class="seccion__contenido">
+        <p><a class="enlace" href="/">Volver al inicio</a></p>
+      </div>
+    </section>
+  </main>
+
+</Base>

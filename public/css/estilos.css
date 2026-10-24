@@ -22,6 +22,10 @@
      serigrafia impresión riso: desajuste de tintas y tramas
      puntilla   festones de encaje y blonda de papel
 
+   Papelería:
+     invitacion  tarjeta de invitación: montañas a línea, filetes y mayúsculas espaciadas
+                 (variantes invitacion-*: solo cambia la separación entre secciones)
+
    Cada estilo tiene una paleta y una tipografía recomendadas
    (ver el probador con ?estilos), pero se pueden combinar libremente.
    ========================================================= */
@@ -33,7 +37,7 @@
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion {
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion {
   grid-template-columns: minmax(0, 1fr);
   justify-items: center;
   row-gap: 0;
@@ -44,7 +48,7 @@
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > * {
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion > * {
   grid-column: 1;
   width: 100%;
 }
@@ -52,14 +56,14 @@
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > * + * {
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion > * + * {
   margin-top: 1.25rem;
 }
 
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > .seccion__titulo {
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion > .seccion__titulo {
   grid-row: auto;
   text-align: center;
 }
@@ -67,7 +71,7 @@
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"])
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"])
   :is(.seccion__intro, .subtitulo, .nota) {
   text-align: center;
   margin-inline: auto;
@@ -76,7 +80,7 @@
 :is(html[data-estilo="dibujado"], html[data-estilo="postal"], html[data-estilo="deco"],
     html[data-estilo="botanico"], html[data-estilo="verbena"], html[data-estilo="azulejo"],
     html[data-estilo="acuarela"], html[data-estilo="kraft"], html[data-estilo="bordado"],
-    html[data-estilo="serigrafia"], html[data-estilo="puntilla"]) .seccion > .seccion__intro {
+    html[data-estilo="serigrafia"], html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion > .seccion__intro {
   margin-top: 0.75rem;
 }
 
@@ -119,13 +123,13 @@
 /* Separador decorativo entre secciones */
 :is(html[data-estilo="dibujado"], html[data-estilo="deco"], html[data-estilo="botanico"],
     html[data-estilo="acuarela"], html[data-estilo="bordado"], html[data-estilo="cuaderno"],
-    html[data-estilo="puntilla"]) .seccion {
+    html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion {
   border-bottom: 0;
 }
 
 :is(html[data-estilo="dibujado"], html[data-estilo="deco"], html[data-estilo="botanico"],
     html[data-estilo="acuarela"], html[data-estilo="bordado"], html[data-estilo="cuaderno"],
-    html[data-estilo="puntilla"]) .seccion + .seccion::before {
+    html[data-estilo="puntilla"], html[data-estilo^="invitacion"]) .seccion + .seccion::before {
   content: "";
   display: block;
   width: 10rem;
@@ -1460,3 +1464,439 @@ html[data-estilo="puntilla"] .cuenta {
   text-align: center;
 }
 
+
+/* =========================================================
+   INVITACIÓN (tarjeta de papelería: montañas a línea, filetes)
+   ========================================================= */
+html[data-estilo^="invitacion"] {
+  --separador: url("../img/iconos/hoja.svg");
+  --separador-color: var(--acento);
+}
+
+html[data-estilo^="invitacion"] .portada {
+  min-height: auto;
+  gap: 1.25rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+html[data-estilo^="invitacion"] .portada::before {
+  content: "";
+  width: min(22rem, 82vw);
+  aspect-ratio: 240 / 112;
+  margin-bottom: 2rem;
+  background-color: var(--tinta);
+  -webkit-mask: url("../img/iconos/montanas.svg") center / contain no-repeat;
+  mask: url("../img/iconos/montanas.svg") center / contain no-repeat;
+}
+
+html[data-estilo^="invitacion"] .portada--breve::before {
+  width: min(14rem, 60vw);
+  margin-bottom: 1rem;
+}
+
+html[data-estilo^="invitacion"] :is(.portada__lugar, .portada__cuenta, .seccion__intro, .nota) {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--tinta);
+}
+
+html[data-estilo^="invitacion"] .portada__nombres {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.35em;
+  font-size: clamp(2.1rem, 8vw, 3.6rem);
+  line-height: 1.15;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+html[data-estilo^="invitacion"] .portada__y {
+  font-family: var(--fuente-nombres);
+  font-weight: var(--peso-nombres);
+  font-style: normal;
+  font-size: 1em;
+  line-height: inherit;
+  color: inherit;
+}
+
+html[data-estilo^="invitacion"] .portada__fecha {
+  width: min(30rem, 100%);
+  margin-top: 0.75rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+html[data-estilo^="invitacion"] .indice {
+  gap: 0.5rem 1.5rem;
+}
+
+html[data-estilo^="invitacion"] .indice a {
+  border-bottom: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html[data-estilo^="invitacion"] .indice a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+html[data-estilo^="invitacion"] .foto {
+  max-width: calc(42rem + 2 * var(--margen));
+}
+
+html[data-estilo^="invitacion"] .foto img {
+  border-radius: 0;
+}
+
+html[data-estilo^="invitacion"] .seccion__titulo {
+  font-weight: 600;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+html[data-estilo^="invitacion"] .seccion h3,
+html[data-estilo^="invitacion"] :is(.cuenta__etiqueta, .pie__fecha, .formulario__grupo-titulo) {
+  font-family: var(--fuente-texto);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Horario y autobuses como el bloque de fecha de la tarjeta:
+   filetes arriba y abajo, hora a la izquierda y línea vertical. */
+html[data-estilo^="invitacion"] :is(.horario, .vuelta) {
+  gap: 0;
+  border-top: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+}
+
+html[data-estilo^="invitacion"] .horario {
+  margin-top: 1.5rem;
+}
+
+html[data-estilo^="invitacion"] :is(.horario__item, .vuelta__fila) {
+  grid-template-columns: 6rem 1fr;
+  gap: 0;
+  align-items: center;
+  padding: 1.1rem 0;
+  text-align: left;
+}
+
+html[data-estilo^="invitacion"] :is(.horario__item, .vuelta__fila) + :is(.horario__item, .vuelta__fila) {
+  border-top: 1px solid var(--linea);
+}
+
+html[data-estilo^="invitacion"] :is(.portada__cuenta, .seccion__intro, .nota, .cuenta__numero) {
+  font-variant-numeric: lining-nums;
+}
+
+html[data-estilo^="invitacion"] :is(.horario__hora, .vuelta dt) {
+  justify-self: center;
+  font-variant-numeric: lining-nums;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  color: var(--tinta);
+  letter-spacing: 0.04em;
+}
+
+html[data-estilo^="invitacion"] .horario__hora {
+  font-size: 2rem;
+}
+
+html[data-estilo^="invitacion"] .vuelta dt {
+  font-size: 1.5rem;
+}
+
+html[data-estilo^="invitacion"] :is(.horario__detalle, .vuelta dd) {
+  align-self: stretch;
+  justify-items: start;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--tinta);
+}
+
+html[data-estilo^="invitacion"] .vuelta dd {
+  display: flex;
+  align-items: center;
+}
+
+html[data-estilo^="invitacion"] .subtitulo {
+  margin-top: 2.5rem;
+}
+
+html[data-estilo^="invitacion"] .hotel__estrellas {
+  color: var(--tinta-suave);
+}
+
+html[data-estilo^="invitacion"] .cuenta {
+  justify-items: center;
+  padding: 1.75rem 0;
+  color: var(--tinta);
+  background: transparent;
+  border-top: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+  border-radius: 0;
+  text-align: center;
+}
+
+html[data-estilo^="invitacion"] .cuenta__numero {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 4.6vw, 1.6rem);
+}
+
+html[data-estilo^="invitacion"] .boton {
+  padding: 0.75rem 1.5rem;
+  color: var(--tinta);
+  background: transparent;
+  border: 1px solid var(--tinta);
+  border-radius: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html[data-estilo^="invitacion"] .boton:hover {
+  opacity: 1;
+  color: var(--papel);
+  background: var(--tinta);
+}
+
+html[data-estilo^="invitacion"] .cuenta .boton:focus-visible {
+  outline-color: var(--tinta);
+}
+
+html[data-estilo^="invitacion"] .campo__control {
+  border-radius: 0;
+}
+
+html[data-estilo^="invitacion"] .pie__nombres {
+  font-family: var(--fuente-nombres);
+  font-weight: var(--peso-nombres);
+  font-size: 1.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+/* Columna algo más ancha que la de los demás estilos centrados. */
+html[data-estilo^="invitacion"] .seccion {
+  max-width: 48rem;
+}
+
+html[data-estilo^="invitacion"] .foto {
+  max-width: calc(48rem + 2 * var(--margen));
+}
+
+/* Botón de confirmación en la portada */
+html[data-estilo^="invitacion"] .portada__rsvp .boton {
+  display: inline-block;
+  margin-top: 0.75rem;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------
+   Separación entre secciones: una variante por estilo.
+   invitacion            ramita en salvia (la base)
+   invitacion-rombo      filete doble con rombo
+   invitacion-montanas   montañas pequeñas
+   invitacion-pinos      tres pinos
+   invitacion-filete     línea fina a todo el ancho
+   invitacion-tarjetas*  contenido en tarjetas (ver más abajo)
+   --------------------------------------------------------- */
+html[data-estilo="invitacion-rombo"] {
+  --separador: url("../img/iconos/rombo.svg");
+  --separador-color: var(--tinta);
+}
+
+html[data-estilo="invitacion-rombo"] .seccion + .seccion::before {
+  width: 14rem;
+}
+
+html[data-estilo="invitacion-montanas"] {
+  --separador: url("../img/iconos/montanas.svg");
+  --separador-color: var(--tinta);
+}
+
+html[data-estilo="invitacion-montanas"] .seccion + .seccion::before {
+  width: 9.5rem;
+  height: 4.4rem;
+}
+
+html[data-estilo="invitacion-pinos"] {
+  --separador: url("../img/iconos/pinos.svg");
+  --separador-color: var(--tinta);
+}
+
+html[data-estilo="invitacion-pinos"] .seccion + .seccion::before {
+  width: 6rem;
+  height: 3.3rem;
+}
+
+html[data-estilo="invitacion-filete"] .seccion + .seccion::before {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 4rem;
+  background: var(--tinta);
+  -webkit-mask: none;
+  mask: none;
+}
+
+/* ---------------------------------------------------------
+   Tarjetas: título y párrafo fuera; .seccion__contenido dentro
+   de una tarjeta. Las variantes invitacion-tarjetas-* solo
+   cambian cómo se dibuja el título:
+   invitacion-tarjetas             título centrado, sin línea
+   invitacion-tarjetas-linea       EL DÍA ————————
+   invitacion-tarjetas-centrado    ——— EL DÍA ———
+   invitacion-tarjetas-subrayado   título con línea completa debajo
+   invitacion-tarjetas-numerado    01  EL DÍA ————————
+   --------------------------------------------------------- */
+html[data-estilo^="invitacion-tarjetas"] .seccion {
+  padding: 4rem 0 0;
+  border-bottom: 0;
+}
+
+html[data-estilo^="invitacion-tarjetas"] main {
+  padding-bottom: 2rem;
+}
+
+html[data-estilo^="invitacion-tarjetas"] .seccion + .seccion::before {
+  display: none;
+}
+
+html[data-estilo^="invitacion-tarjetas"] .seccion__contenido {
+  margin-top: 2rem;
+  padding: 2.5rem clamp(1.25rem, 5vw, 3rem);
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  box-shadow: 0 0.5rem 1.75rem color-mix(in srgb, var(--tinta) 8%, transparent);
+}
+
+html[data-estilo^="invitacion-tarjetas"] .seccion__contenido > :first-child {
+  margin-top: 0;
+}
+
+/* Dentro de la tarjeta sobran los filetes exteriores del horario y del regalo. */
+html[data-estilo^="invitacion-tarjetas"] :is(.horario, .cuenta) {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+html[data-estilo^="invitacion-tarjetas"] .horario__item:first-child {
+  padding-top: 0;
+}
+
+html[data-estilo^="invitacion-tarjetas"] .horario__item:last-child {
+  padding-bottom: 0;
+}
+
+html[data-estilo^="invitacion-tarjetas"] .cuenta {
+  padding: 0;
+}
+
+/* Títulos alineados a la izquierda (todas las variantes salvo la base y la centrada) */
+:is(html[data-estilo="invitacion-tarjetas-linea"], html[data-estilo="invitacion-tarjetas-subrayado"],
+    html[data-estilo="invitacion-tarjetas-numerado"]) .seccion > :is(.seccion__titulo, .seccion__intro) {
+  max-width: none;
+  margin-inline: 0;
+  text-align: left;
+}
+
+/* Línea que sigue al título */
+:is(html[data-estilo="invitacion-tarjetas-linea"], html[data-estilo="invitacion-tarjetas-centrado"],
+    html[data-estilo="invitacion-tarjetas-numerado"]) .seccion > .seccion__titulo {
+  display: flex;
+  /* Si el título ocupa dos líneas, la línea se alinea con la última. */
+  align-items: last baseline;
+  gap: 1.25rem;
+}
+
+:is(html[data-estilo="invitacion-tarjetas-linea"], html[data-estilo="invitacion-tarjetas-centrado"],
+    html[data-estilo="invitacion-tarjetas-numerado"]) .seccion__titulo::after {
+  content: "";
+  flex: 1;
+  min-width: 2rem;
+  height: 1px;
+  background: var(--tinta);
+  transform: translateY(-0.32em);
+}
+
+/* Centrado: también una línea delante */
+html[data-estilo="invitacion-tarjetas-centrado"] .seccion__titulo::before {
+  content: "";
+  flex: 1;
+  min-width: 2rem;
+  height: 1px;
+  background: var(--tinta);
+  transform: translateY(-0.32em);
+}
+
+/* En móvil, títulos algo menores para que quepan en una línea junto al filete. */
+@media (max-width: 30rem) {
+  html[data-estilo^="invitacion-tarjetas"] .seccion__titulo {
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Subrayado: línea completa bajo el título */
+html[data-estilo="invitacion-tarjetas-subrayado"] .seccion > .seccion__titulo {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--tinta);
+}
+
+/* Numerado: 01, 02… delante del título (solo en la portada) */
+html[data-estilo="invitacion-tarjetas-numerado"] main {
+  counter-reset: seccion;
+}
+
+html[data-estilo="invitacion-tarjetas-numerado"] .seccion {
+  counter-increment: seccion;
+}
+
+html[data-estilo="invitacion-tarjetas-numerado"] .seccion__titulo::before {
+  content: counter(seccion, decimal-leading-zero);
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--acento);
+}
+
+html[data-estilo="invitacion-tarjetas-numerado"] .portada--breve ~ main .seccion__titulo::before {
+  content: none;
+}
+
+
+/* =========================================================
+   Páginas interiores (confirmar, gracias)
+   ---------------------------------------------------------
+   Van al final y con html[data-estilo] para ganar a los
+   ajustes de .portada de cada estilo.
+   ========================================================= */
+html[data-estilo] .portada--breve {
+  min-height: auto;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+html[data-estilo] .portada--breve .portada__nombres {
+  font-size: calc(var(--tamano-nombres) * 0.5);
+}
+
+/* En la cabecera reducida, el sello de la postal taparía la fecha. */
+html[data-estilo="postal"] .portada--breve::before {
+  display: none;
+}
